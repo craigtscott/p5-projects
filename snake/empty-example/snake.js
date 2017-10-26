@@ -1,18 +1,3 @@
-var s;
-
-function setup() {
-  createCanvas(600,600);
-  s = new Snake();
-}
-
-
-function draw() {
-  background(100);
-  s.update();
-  s.show();
-}
-
-
 function Snake() {
   this.x = 0;
   this.y = 0;
