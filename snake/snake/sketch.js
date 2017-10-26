@@ -6,13 +6,14 @@ function setup() {
 }
 
 
+
 function draw() {
   background(100);
   s.update();
   s.show();
 }
 
-function keyPress() {
+function keyPressed() {
   if (keyCode === UP_ARROW) {
     s.dir(0, -1);
   } else if (keyCode === DOWN_ARROW) {
