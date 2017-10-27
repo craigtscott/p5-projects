@@ -17,6 +17,10 @@ function draw() {
   s.update();
   s.show();
   f.show();
+
+  if (s.eat(f)) {
+    f.pick();
+  }
 }
 
 function keyPressed() {

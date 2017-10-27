@@ -21,4 +21,13 @@ function Snake() {
     fill(255);
     rect(this.x, this.y, scl, scl);
   };
+
+  this.eat = function(pos) {
+    var dis = dist(this.x, this.y, pos.x, pos.y);
+    if (dis < 2) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 }
