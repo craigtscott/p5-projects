@@ -7,8 +7,6 @@ function Food() {
   this.pick = function () {
     this.x = floor(random(this.cols)) * scl;
     this.y = floor(random(this.rows)) * scl;
-    print("x" + this.x);
-    print("y" + this.y);
   };
 
   this.show = function () {
@@ -16,9 +14,4 @@ function Food() {
     fill(0,128,0);
     rect(this.x, this.y, scl, scl);
   };
-
-
-
-
-
 }
