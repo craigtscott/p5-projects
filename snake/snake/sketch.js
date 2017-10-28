@@ -1,6 +1,6 @@
 var s;
 var scl = 20;
-
+var f;
 
 function setup() {
   createCanvas(600,600);
@@ -14,13 +14,14 @@ function setup() {
 
 function draw() {
   background(100);
-  s.update();
-  s.show();
-  f.show();
-
-  if (s.eat(f)) {
+  print (f.food);
+  if (s.eat(f.food)) {
     f.pick();
   }
+  f.show();
+  s.update();
+  s.show();
+
 }
 
 function keyPressed() {
