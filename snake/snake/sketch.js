@@ -14,14 +14,13 @@ function setup() {
 
 function draw() {
   background(100);
-  print (f.food);
   if (s.eat(f.food)) {
     f.pick();
   }
-  f.show();
+
   s.update();
   s.show();
-
+  f.show();
 }
 
 function keyPressed() {
@@ -34,5 +33,8 @@ function keyPressed() {
     s.dir(1, 0);
   } else if (keyCode === LEFT_ARROW) {
     s.dir(-1, 0);
+  } else if (keyCode === 71){
+    s.total++;
+    s.changes = true;
   }
 }

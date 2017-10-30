@@ -1,9 +1,9 @@
 function Snake() {
-  this.x = 0;
-  this.y = 0;
+  this.position = createVector(0,0);
   this.xspeed = 1;
   this.yspeed = 0;
   this.total = 0;
+  this.changes = false;
   this.tail = [];
 
   this.dir = function(x,y) {
@@ -12,18 +12,20 @@ function Snake() {
   };
 
   this.update = function() {
-    print (this.tail);
-    for (var i = 0; i < this.tail.lenght; i++) {
+    for (var i = 0; i <= this.tail.lenght - 1; i++) {
       this.tail[i] = this.tail[i + 1];
     }
-    if (this.total != this.tail.length); {
-      this.tail[this.total - 1] = createVector(this.x, this.y);
+    // if (this.total != this.tail.length); {
+    if (this.chagnes); {
+      this.tail[this.total - 1] = createVector(this.position.x, this.position.y);
+      this.changes = false;
     }
-    this.x = this.x + this.xspeed * scl;
-    this.y = this.y + this.yspeed * scl;
+    print (this.tail);
+    this.position.x = this.position.x + this.xspeed * scl;
+    this.position.y = this.position.y + this.yspeed * scl;
 
-    this.x = constrain(this.x, 0, width-scl);
-    this.y = constrain(this.y, 0, height-scl);
+    this.position.x = constrain(this.position.x, 0, width-scl);
+    this.position.y = constrain(this.position.y, 0, height-scl);
   };
 
   this.show = function() {
@@ -31,11 +33,11 @@ function Snake() {
     for (var i = 0; i < this.tail.length; i++) {
       rect(this.tail[i].x, this.tail[i].y, scl, scl);
     }
-    rect(this.x, this.y, scl, scl);
+    rect(this.position.x, this.position.y, scl, scl);
   };
 
   this.eat = function(pos) {
-    var dis = dist(this.x, this.y, pos.x, pos.y);
+    var dis = dist(this.position.x, this.position.y, pos.x, pos.y);
     if (dis < 1) {
       this.total++;
       return true;
