@@ -25,6 +25,7 @@ function draw() {
   s.update();
   s.show();
   f.show();
+  s.isDead();
 }
 
 function keyPressed() {
@@ -36,10 +37,10 @@ function keyPressed() {
     s.direction(1, 0);
   } else if (keyCode === LEFT_ARROW) {
     s.direction(-1, 0);
-  } else if (keyCode === 71){
+  } else if (keyCode === 32){
     s.total++;
-    s.changes = true;
+    s.ate = true;
   } else if (keyCode === 82){
-    game()
+    game();
   }
 }
