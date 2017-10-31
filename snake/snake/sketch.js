@@ -25,7 +25,6 @@ function draw() {
 
 function keyPressed() {
   if (keyCode === UP_ARROW) {
-
     s.dir(0, -1);
   } else if (keyCode === DOWN_ARROW) {
     s.dir(0, 1);

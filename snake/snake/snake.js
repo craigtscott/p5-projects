@@ -1,28 +1,26 @@
 function Snake() {
-  this.position = createVector(0,0);
-  this.xspeed = 1;
-  this.yspeed = 0;
+  this.position = createVector(1,0);
+  this.movment =
+  this.speed = createVector(1, 0);
   this.total = 0;
-  this.changes = false;
+  this.ate = false;
   this.tail = [];
 
   this.dir = function(x,y) {
-    this.xspeed = x;
-    this.yspeed = y;
+    this.speed.x = x;
+    this.speed.y = y;
   };
 
   this.update = function() {
-    for (var i = 0; i <= this.tail.lenght - 1; i++) {
-      this.tail[i] = this.tail[i + 1];
+    this.tail.unshift(createVector(this.position.x, this.position.y));
+    if (!this.ate) {
+      this.tail.pop();
+    } else {
+      this.ate = false;
     }
-    // if (this.total != this.tail.length); {
-    if (this.chagnes); {
-      this.tail[this.total - 1] = createVector(this.position.x, this.position.y);
-      this.changes = false;
-    }
-    print (this.tail);
-    this.position.x = this.position.x + this.xspeed * scl;
-    this.position.y = this.position.y + this.yspeed * scl;
+
+    this.position.x = this.position.x + this.movment.x * scl;
+    this.position.y = this.position.y + this.movment.y * scl;
 
     this.position.x = constrain(this.position.x, 0, width-scl);
     this.position.y = constrain(this.position.y, 0, height-scl);
@@ -38,8 +36,9 @@ function Snake() {
 
   this.eat = function(pos) {
     var dis = dist(this.position.x, this.position.y, pos.x, pos.y);
-    if (dis < 1) {
+    if (dis < 2) {
       this.total++;
+      this.ate = true;
       return true;
     } else {
       return false;
