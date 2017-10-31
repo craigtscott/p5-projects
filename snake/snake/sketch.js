@@ -4,10 +4,14 @@ var f;
 
 function setup() {
   createCanvas(600,600);
+  frameRate(10);
+  game();
+}
+
+function game() {
   s = new Snake();
   f = new Food();
   f.pick();
-  frameRate(10);
 }
 
 
@@ -35,5 +39,7 @@ function keyPressed() {
   } else if (keyCode === 71){
     s.total++;
     s.changes = true;
+  } else if (keyCode === 82){
+    game()
   }
 }
