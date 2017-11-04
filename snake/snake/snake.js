@@ -39,12 +39,12 @@ function Snake() {
 
   this.isDead = function() {
     if (this.position.x < 0 || this.position.y < 0 || this.position.x > width || this.position.y > height) {
-      game();
+      gameOver();
     }
     for (var i = 0; i < this.tail.length; i++) {
         var dis = dist(this.position.x, this.position.y, this.tail[i].x, this.tail[i].y);
       if (dis < 1) {
-        game();
+        gameOver();
       }
     }
   };
