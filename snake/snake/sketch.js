@@ -47,6 +47,9 @@ function gameOver() {
 
 function gamePlay() {
   background(100);
+  fill(255);
+  textSize(12);
+  text("score: " + s.tail.length, 1, 10);
   if (s.eat(f.food)) {
     f.pick();
   }
