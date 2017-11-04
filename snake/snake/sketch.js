@@ -1,6 +1,8 @@
 var s;
 var scl = 20;
 var f;
+var state;
+var startBtn;
 
 function setup() {
   createCanvas(600,600);
@@ -9,6 +11,9 @@ function setup() {
 }
 
 function game() {
+  // debugger;
+  removeElements();
+  state = "game";
   s = new Snake();
   f = new Food();
   f.pick();
@@ -29,9 +34,7 @@ function gameOver() {
   startBtn.mousePressed(game);
 }
 
-
-
-function draw() {
+function gamePlay() {
   background(100);
   if (s.eat(f.food)) {
     f.pick();
@@ -41,6 +44,14 @@ function draw() {
   s.show();
   f.show();
   s.isDead();
+}
+
+function draw() {
+  if (state === "game") {
+    gamePlay();
+  } else if (state === "dead"){
+    gameOver();
+  }
 }
 
 function keyPressed() {
