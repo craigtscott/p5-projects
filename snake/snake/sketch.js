@@ -7,16 +7,27 @@ var startBtn;
 function setup() {
   createCanvas(600,600);
   frameRate(10);
-  game();
+  state = "init";
 }
 
 function game() {
-  // debugger;
   removeElements();
   state = "game";
   s = new Snake();
   f = new Food();
   f.pick();
+}
+
+function gameInit() {
+  background(100);
+  textSize(36);
+  msg = 'Play Snake?';
+  tWidth = textWidth(msg);
+  fill(255);
+  text(msg, (width - tWidth)/2, height/2 - 40);
+  startBtn = createButton('Start Game');
+  startBtn.position(width/2 - startBtn.width/2, height/2);
+  startBtn.mousePressed(game);
 }
 
 function gameOver() {
@@ -49,8 +60,10 @@ function gamePlay() {
 function draw() {
   if (state === "game") {
     gamePlay();
-  } else if (state === "dead"){
+  } else if (state === "dead") {
     gameOver();
+  } else if (state === "init") {
+    gameInit();
   }
 }
 
