@@ -18,6 +18,10 @@ function game() {
   f.pick();
 }
 
+function speed() {
+  frameRate(10 + s.tail.length);
+}
+
 function gameInit() {
   background(100);
   textSize(36);
@@ -58,6 +62,7 @@ function gamePlay() {
   s.show();
   f.show();
   s.isDead();
+  speed();
 }
 
 function draw() {
