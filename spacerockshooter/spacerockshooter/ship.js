@@ -10,6 +10,7 @@ function Ship() {
   this.drawShip = function() {
     translate(this.center.x, this.center.y);
     this.move();
+    this.wrap();
     rotate(this.direction + PI/2);
     stroke(255);
     noFill();
@@ -40,6 +41,18 @@ function Ship() {
   this.boost = function() {
     var force = p5.Vector.fromAngle(this.direction);
     this.vel.add(force);
+  };
+
+  this.wrap = function() {
+    if (this.center.x > 600) {
+      this.center.x = 0;
+    } else if (this.center.x < 0) {
+      this.center.x = width;
+    }else if (this.center.y < 0) {
+      this.center.y = width;
+    }else if (this.center.y < 0) {
+      this.center.y = width;
+    }
   };
 
 }
