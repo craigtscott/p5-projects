@@ -8,6 +8,7 @@ function Ship() {
   this.vel = createVector(0,0);
 
   this.drawShip = function() {
+    push();
     translate(this.center.x, this.center.y);
     this.move();
     this.wrap();
@@ -16,6 +17,7 @@ function Ship() {
     noFill();
     // this.fire();
     triangle(-this.r, this.r, this.r, this.r, 0, -this.r);
+    pop();
   };
 
   this.move = function() {
