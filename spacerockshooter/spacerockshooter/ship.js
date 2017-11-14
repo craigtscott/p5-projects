@@ -3,14 +3,14 @@ function Ship() {
   // this.center = [(this.pos[2] + this.pos[4]) /2, (this.pos[1] + this.pos[3]) /2];
   // this.dir = PI/3.0;
   this.center = createVector(300,300);
-  this.direction = 0;
+  this.direction = -PI / 2;
   this.r = 20;
-  this.speed = 0;
+  this.vel = createVector(0,0);
 
   this.drawShip = function() {
     translate(this.center.x, this.center.y);
     this.move();
-    rotate(this.direction);
+    rotate(this.direction + PI/2);
     stroke(255);
     noFill();
     // this.fire();
@@ -18,11 +18,16 @@ function Ship() {
   };
 
   this.move = function() {
-    if (keyIsDown(LEFT_ARROW))
+    this.center.add(this.vel);
+    this.vel.mult(.97);
 
+    if (keyIsDown(LEFT_ARROW))
     this.direction += -(PI/20);
     if (keyIsDown(RIGHT_ARROW))
     this.direction += (PI/20);
+    if (keyIsDown(UP_ARROW))
+    this.boost();
+
 
     // this.center =
 
@@ -30,6 +35,11 @@ function Ship() {
 
     // this.direction += this.theta;
     // this.theta = 0;
+  };
+
+  this.boost = function() {
+    var force = p5.Vector.fromAngle(this.direction);
+    this.vel.add(force);
   };
 
 }
