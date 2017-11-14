@@ -46,14 +46,14 @@ function Ship() {
   };
 
   this.wrap = function() {
-    if (this.center.x > 600) {
+    if (this.center.x >= 600) {
       this.center.x = 0;
     } else if (this.center.x < 0) {
       this.center.x = width;
     }else if (this.center.y < 0) {
-      this.center.y = width;
-    }else if (this.center.y < 0) {
-      this.center.y = width;
+      this.center.y = height;
+    }else if (this.center.y >= 600) {
+      this.center.y = 0;
     }
   };
 
