@@ -1,13 +1,15 @@
 function Ship() {
-  // this.pos = [300, 240, 240, 360, 360, 360];
-  // this.center = [(this.pos[2] + this.pos[4]) /2, (this.pos[1] + this.pos[3]) /2];
-  // this.dir = PI/3.0;
   this.center = createVector(300,300);
   this.direction = -PI / 2;
   this.r = 20;
   this.vel = createVector(0,0);
+  this.lazers = [];
 
   this.drawShip = function() {
+    for (var i = 0; i < this.lazers.length; i++) {
+      this.lazers[i].update();
+      this.lazers[i].render();
+    }
     push();
     translate(this.center.x, this.center.y);
     this.move();
@@ -30,6 +32,9 @@ function Ship() {
     this.direction += (PI/20);
     if (keyIsDown(UP_ARROW))
     this.boost();
+    if (keyIsDown(32))
+    this.lazers.push(new Lazer(this.center, this.direction));
+
 
 
     // this.center =
