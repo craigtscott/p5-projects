@@ -6,9 +6,18 @@ function Ship() {
   this.lazers = [];
 
   this.drawShip = function() {
-    for (var i = 0; i < this.lazers.length; i++) {
+    for (var i = this.lazers.length-1; i >=0; i--) {
       this.lazers[i].update();
       this.lazers[i].render();
+      for (var j=rock.length-1; j >=0; j--) {
+        if (this.lazers[i].hits(rock[j])) {
+          var newRock = rock[j].break();
+          rock.splice(j,1);
+          this.lazers.splice(i,1);
+          // rock.push(newRock);
+          break;
+        }
+      }
     }
     push();
     translate(this.center.x, this.center.y);
@@ -61,5 +70,6 @@ function Ship() {
       this.center.y = 0;
     }
   };
+
 
 }

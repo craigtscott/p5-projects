@@ -1,7 +1,11 @@
-function Rock() {
-
-  this.center = createVector(random(width), random(height));
-  this.r = 25;
+function Rock(center, r) {
+  if (center) {
+    this.center = center.copy();
+    this.r = r;
+  } else {
+    this.center = createVector(random(width), random(height));
+    this.r = 25;
+  }
   // this.direction = random( PI * 2);
   this.vel = p5.Vector.random2D();
 
@@ -27,6 +31,13 @@ function Rock() {
     }else if (this.center.y > 600) {
       this.center.y = 0;
     }
+  };
+
+  this.break = function() {
+    var newRock = [];
+    newRock[0] = new Rock(this.center, this.r/2);
+    newRock[1] = new Rock(this.center, this.r/2);
+    return newRock;
   };
 
 }
