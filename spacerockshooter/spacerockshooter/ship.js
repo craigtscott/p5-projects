@@ -14,7 +14,7 @@ function Ship() {
           var newRock = rock[j].break();
           rock.splice(j,1);
           this.lazers.splice(i,1);
-          // rock.push(newRock);
+          rock = rock.concat(newRock);
           break;
         }
       }
