@@ -11,10 +11,12 @@ function Ship() {
       this.lazers[i].render();
       for (var j=rock.length-1; j >=0; j--) {
         if (this.lazers[i].hits(rock[j])) {
-          var newRock = rock[j].break();
+          if (rock[j].r > 10) {
+            var newRock = rock[j].break();
+            rock = rock.concat(newRock);
+          }
           rock.splice(j,1);
           this.lazers.splice(i,1);
-          rock = rock.concat(newRock);
           break;
         }
       }
@@ -43,6 +45,7 @@ function Ship() {
     this.boost();
     if (keyIsDown(32))
     this.lazers.push(new Lazer(this.center, this.direction));
+
 
 
 

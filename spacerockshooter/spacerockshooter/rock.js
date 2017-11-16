@@ -4,7 +4,7 @@ function Rock(center, r) {
     this.r = r;
   } else {
     this.center = createVector(random(width), random(height));
-    this.r = 25;
+    this.r = random(10,30);
   }
   // this.direction = random( PI * 2);
   this.vel = p5.Vector.random2D();
