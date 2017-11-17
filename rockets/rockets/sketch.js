@@ -1,4 +1,5 @@
 var population;
+var lifespan = 500;
 function setup() {
   createCanvas(600, 800)
   population = new Population();
@@ -8,6 +9,13 @@ function setup() {
 function draw() {
   background(0);
   population.run();
+}
+
+function DNA() {
+  this.genes = [];
+  for (var i = 0; i < lifespan; i++) {
+    this.genes[i] = p5.Vector.random2D();
+  }
 }
 
 function Population() {
