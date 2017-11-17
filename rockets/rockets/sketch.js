@@ -1,36 +1,27 @@
 var population;
-var lifespan = 500;
+var lifespan = 50;
+var showL;
+var count = 0;
+var target;
+
 function setup() {
-  createCanvas(600, 800)
+  createCanvas(600, 800);
   population = new Population();
-  
+  showL = createP();
+  target = createVector(width/2, 25);
 }
 
 function draw() {
   background(0);
   population.run();
-}
-
-function DNA() {
-  this.genes = [];
-  for (var i = 0; i < lifespan; i++) {
-    this.genes[i] = p5.Vector.random2D();
-  }
-}
-
-function Population() {
-  this.rockets = [];
-  this.numRockets = 50;
+  showL.html(count);
+  count++;
   
-  for (var i = 0; i < this.numRockets; i++) {
-    this.rockets[i] = new Rocket();
+  if (count >= lifespan) {
+    population.eval();
+    population.selection();
+    count = 0;
   }
   
-  this.run = function() {
-    for (var i = 0; i < this.numRockets; i++) {
-      this.rockets[i].update();
-      this.rockets[i].show();
-
-    }
-  }
+  ellipse(target.x, target.y, 15, 15);
 }

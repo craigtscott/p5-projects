@@ -1,21 +1,25 @@
-function Rocket() {
+function Rocket(dna) {
   this.pos = createVector(width/2, height);
   this.vel = createVector();
   this.acc = createVector();
-  this.dna = new DNA();
-  this.count = 0;
+  if (dna){
+    this.dna = new DNA(dna);
+  } else {
+    this.dna = new DNA();
+  }
+  this.fitness;
+
   
   this.applyForce = function(force) {
     this.acc.add(force);
-  }
+  },
   
   this.update = function() {
-    this.applyForce(this.dna.genes[this.count]);
-    this.count++;
+    this.applyForce(this.dna.genes[count]);
     this.vel.add(this.acc);
     this.pos.add(this.vel);
     this.acc.mult(0);
-  }
+  };
   
   this.show = function() {
     push();
@@ -25,6 +29,11 @@ function Rocket() {
     rect(0,0, 50, 10);
     pop();
     
-  }
+  };
+  
+  this.calcFit = function() {
+    var d = dist(this.pos.x, this.pos.y, target.x, target.y);
+    this.fitness = map(d, 0, width, width, 0);
+  };
   
 }
