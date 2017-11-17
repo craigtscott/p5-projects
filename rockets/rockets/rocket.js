@@ -2,12 +2,12 @@ function Rocket(dna) {
   this.pos = createVector(width/2, height);
   this.vel = createVector();
   this.acc = createVector();
-  if (dna){
-    this.dna = new DNA(dna);
+  if (dna) {
+    this.dna = dna;
   } else {
     this.dna = new DNA();
   }
-  this.fitness;
+  this.fitness = 0;
 
   
   this.applyForce = function(force) {
@@ -32,8 +32,9 @@ function Rocket(dna) {
   };
   
   this.calcFit = function() {
+
     var d = dist(this.pos.x, this.pos.y, target.x, target.y);
-    this.fitness = map(d, 0, width, width, 0);
+    this.fitness = map(d, 0, width,0, width);
   };
   
 }

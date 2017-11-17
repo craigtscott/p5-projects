@@ -1,5 +1,5 @@
 var population;
-var lifespan = 50;
+var lifespan = 300;
 var showL;
 var count = 0;
 var target;
@@ -17,7 +17,7 @@ function draw() {
   showL.html(count);
   count++;
   
-  if (count >= lifespan) {
+  if (count === lifespan) {
     population.eval();
     population.selection();
     count = 0;

@@ -19,8 +19,6 @@ function DNA(genes) {
         newgenes[i] = partner.genes[i];
       }
     }
-    newdna = new DNA(newgenes);
-    return newdna;
+    return new DNA(newgenes);
   };
-  
 }

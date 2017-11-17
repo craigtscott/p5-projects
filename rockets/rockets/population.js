@@ -16,7 +16,6 @@ function Population() {
   };
   
   this.eval = function() {
-    // debugger;
     var maxfit = 0;
     for (var i = 0; i < this.numRockets; i++) {
       this.rockets[i].calcFit();
@@ -39,14 +38,13 @@ function Population() {
   };
   
   this.selection = function() {
-    debugger;
     var newRockets = [];
     for (var i = 0; i < this.rockets.length; i++) {
-      var parentA = random(this.pool);
-      var parentB = random(this.pool);
+      var parentA = random(this.pool).dna;
+      var parentB = random(this.pool).dna;
       var child = parentA.cross(parentB);
       newRockets[i] = new Rocket(child);
     }
-    this.roackets = newRockets;
+    this.rockets = newRockets;
   };
 }
