@@ -1,7 +1,13 @@
+var rocket;
 function setup() {
-  // put setup code here
+  createCanvas(600, 800)
+  rocket = new Rocket();
+  
 }
 
 function draw() {
-  // put drawing code here
+  background(0);
+  rocket.update();
+  rocket.show();
 }
+
