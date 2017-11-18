@@ -43,6 +43,7 @@ function Population() {
       var parentA = random(this.pool).dna;
       var parentB = random(this.pool).dna;
       var child = parentA.cross(parentB);
+      child.mutate();
       newRockets[i] = new Rocket(child);
     }
     this.rockets = newRockets;

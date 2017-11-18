@@ -21,4 +21,12 @@ function DNA(genes) {
     }
     return new DNA(newgenes);
   };
+  
+  this.mutate = function() {
+    for (var i = 0; i < this.genes.length; i++) {
+      if (random(1) < 0.01) {
+        this.genes[i] = p5.Vector.random2D();
+      }
+    }
+  };
 }

@@ -45,6 +45,9 @@ function Rocket(dna) {
 
     var d = dist(this.pos.x, this.pos.y, target.x, target.y);
     this.fitness = map(d, 0, width,0, width);
+    if (this.pos.y < target.y){
+      this.fitness +=2;
+    }
     if (this.hit){
       this.fitnes *= 10;
     }
