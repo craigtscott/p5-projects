@@ -5,6 +5,7 @@ var showV;
 var count = 0;
 var target;
 var vollies = 0;
+var obstacle
 
 function setup() {
   createCanvas(600, 600);
@@ -12,10 +13,12 @@ function setup() {
   showL = createP();
   showV = createP();
   target = createVector(width/2, 25);
+  obstacle = new Obstacle();
 }
 
 function draw() {
   background(0);
+  obstacle.show();
   population.run();
   showL.html(count);
   showV.html(vollies);
