@@ -24,7 +24,7 @@ function DNA(genes) {
   
   this.mutate = function() {
     for (var i = 0; i < this.genes.length; i++) {
-      if (random(1) < 0.01) {
+      if (random(1) < 0.7) {
         this.genes[i] = p5.Vector.random2D();
       }
     }

@@ -1,5 +1,5 @@
 var population;
-var lifespan = 500;
+var lifespan = 250;
 var showL;
 var showV;
 var count = 0;

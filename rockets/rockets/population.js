@@ -2,6 +2,7 @@ function Population() {
   this.rockets = [];
   this.numRockets = 50;
   this.pool = [];
+  this.hitters = [];
   
   for (var i = 0; i < this.numRockets; i++) {
     this.rockets[i] = new Rocket();

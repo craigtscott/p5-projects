@@ -1,9 +1,10 @@
 function Rocket(dna) {
-  this.pos = createVector(width/2, height);
+  this.pos = createVector(width/2, height - 20);
   this.vel = createVector();
   this.acc = createVector();
   this.hit = false;
   this.crash = false;
+  this.prox = 0;
   if (dna) {
     this.dna = dna;
   } else {
@@ -20,11 +21,20 @@ function Rocket(dna) {
     var d = dist(this.pos.x, this.pos.y, target.x, target.y);
     
     if (d < 10) {
-      this.hit = true
+      this.hit = true;
       this.pos = target.copy();
 
     }
+    if ( d < 100) {
+      this.prox += 5;
+    }
+    if( 100 < d < 200) {
+      this.prox += 3;
+    }
     if (this.pos.x > obstacle.location.x && this.pos.x < obstacle.location.x + obstacle.width && this.pos.y > obstacle.location.y && this.pos.y < obstacle.location.y + obstacle.height) {
+      this.crash = true;
+    }
+    if (this.pos.y >= height) {
       this.crash = true;
     }
     this.applyForce(this.dna.genes[count]);
@@ -52,11 +62,12 @@ function Rocket(dna) {
     if (this.pos.y < target.y){
       this.fitness +=2;
     }
+    this.fitnes += this.prox;
     if (this.hit){
       this.fitnes *= 10;
     }
     if (this.crash){
-      this.fitness = 1
+      this.fitness = 1;
     }
   };
   
