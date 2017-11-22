@@ -13,7 +13,8 @@ function DNA(genes) {
     var newgenes = [];
     var mid = floor(random(this.genes.length));
     for (var i = 0; i < this.genes.length; i++) {
-      if (i > mid){
+      rand = random(2);
+      if (random == 1){
         newgenes[i] = this.genes[i];
       } else {
         newgenes[i] = partner.genes[i];

@@ -65,6 +65,7 @@ function Rocket(dna) {
     this.fitnes += this.prox;
     if (this.hit){
       this.fitnes *= 10;
+      hits += 1;
     }
     if (this.crash){
       this.fitness = 1;
