@@ -20,9 +20,12 @@ function Rocket(dna) {
   this.update = function() {
     var d = dist(this.pos.x, this.pos.y, target.x, target.y);
     
-    if (d < 10) {
+    if (d < 50 && !this.hit) {
       this.hit = true;
       this.pos = target.copy();
+      var rocket = new Rocket(this.dna);
+      append(hitters, rocket)
+      
 
     }
     if ( d < 100) {
@@ -65,7 +68,6 @@ function Rocket(dna) {
     this.fitnes += this.prox;
     if (this.hit){
       this.fitnes *= 10;
-      append(hitters, this.dna);
     }
     if (this.crash){
       this.fitness = 1;
