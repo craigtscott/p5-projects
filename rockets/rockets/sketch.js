@@ -7,7 +7,7 @@ var count = 0;
 var target;
 var vollies = 0;
 var obstacle
-var hits = 0;
+var hitters = [];
 
 function setup() {
   createCanvas(600, 600);
@@ -25,7 +25,7 @@ function draw() {
   population.run();
   showL.html(count);
   showV.html(vollies);
-  showH.html(hits);
+  showH.html(hitters.length);
   count++;
   
   if (count === lifespan) {

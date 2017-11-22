@@ -40,13 +40,14 @@ function Population() {
   
   this.selection = function() {
     var newRockets = [];
-    for (var i = 0; i < this.rockets.length; i++) {
+    for (var i = 0; i < this.rockets.length - this.hitters.length; i++) {
       var parentA = random(this.pool).dna;
       var parentB = random(this.pool).dna;
       var child = parentA.cross(parentB);
       child.mutate();
       newRockets[i] = new Rocket(child);
     }
+    this.rockets.concat(this.hitters);
     this.rockets = newRockets;
   };
 }
