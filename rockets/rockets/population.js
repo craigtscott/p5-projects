@@ -47,8 +47,13 @@ function Population() {
       child.mutate();
       newRockets[i] = new Rocket(child);
     }
+    
     for (var i = 0; i < hitters.length; i++) {
-      newRockets[i] = hitters[i];
+      var hitter = hitters[i].dna;
+      var parentB = random(this.pool).dna;
+      var child = hitter.cross(parentB);
+      child.mutate();
+      newRockets[i] = new Rocket(child);
     }
 
     this.rockets = newRockets;
