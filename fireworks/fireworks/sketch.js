@@ -1,7 +1,14 @@
+var firework;
+
 function setup() {
-  // put setup code here
+  createCanvas(400, 300);
+  stroke(255);
+  strokeWeight(5);
+  firework = new Particle(200, 150);
 }
 
 function draw() {
-  // put drawing code here
+  background(51);
+  firework.update();
+  firework.draw();
 }
