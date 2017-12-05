@@ -2,10 +2,9 @@ var fireworks = [];
 var gravity;
 
 function setup() {
-  createCanvas(400, 300);
-  stroke(255);
+  createCanvas(400, 600);
   strokeWeight(5);
-  gravity = createVector(0,.3)
+  gravity = createVector(0,.3);
 }
 
 function draw() {
@@ -14,8 +13,9 @@ function draw() {
     fireworks.push(new Firework());
   }
   for (var i = 0; i < fireworks.length; i++) {
+    stroke(255);
     fireworks[i].update();
     fireworks[i].draw();
-    
+
   }
 }
