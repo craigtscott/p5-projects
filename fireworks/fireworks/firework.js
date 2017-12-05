@@ -1,5 +1,5 @@
 function Firework(){
-  this.firework = new Particle(random(width), height, false);
+  this.firework = new Particle(random(width), height, false, null, false);
   this.exploded = false;
   this.shower = [];
 
@@ -12,9 +12,13 @@ function Firework(){
         this.explod();
       }
     }
-    for (var i = 0; i < this.shower.length; i++) {
+    for (var i = this.shower.length - 1; i >= 0; i--) {
       this.shower[i].applyForce(gravity);
       this.shower[i].update();
+
+      if (this.shower[i].fin()){
+        this.shower.splice(i,1);
+      }
     }
   };
 

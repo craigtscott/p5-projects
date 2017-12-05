@@ -3,7 +3,7 @@ var gravity;
 
 function setup() {
   createCanvas(400, 600);
-  strokeWeight(5);
+  strokeWeight(7);
   gravity = createVector(0,.3);
 }
 
