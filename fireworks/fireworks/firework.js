@@ -20,12 +20,16 @@ function Firework(){
 
   this.explod = function() {
     var shape = "square";
-
-    if (random(1) >= .5){
+    var rand = false;
+    var roll = random(1);
+    if (roll >= .5){
       shape ="circle";
+    } else if (roll < .3 || roll > .7) {
+      rand = true;
     }
+
     for (var i = 0; i < 100; i++) {
-      var part = new Particle(this.firework.pos.x, this.firework.pos.y, true, shape);
+      var part = new Particle(this.firework.pos.x, this.firework.pos.y, true, shape, rand);
       this.shower.push(part);
     }
   };

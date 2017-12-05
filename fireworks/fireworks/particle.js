@@ -1,4 +1,4 @@
-function Particle(x,y, shower, shape) {
+function Particle(x,y, shower, shape, rand) {
   this.pos = createVector(x,y);
   if (shower){
     if (shape === "circle"){
@@ -6,6 +6,10 @@ function Particle(x,y, shower, shape) {
       } else {
         this.vel = p5.Vector.random2D();
       }
+    if (rand){
+      this.vel.mult(random(1,4));
+    }
+
   } else {
     this.vel = createVector(random(-1, 1),random(-6,-20));
   }
