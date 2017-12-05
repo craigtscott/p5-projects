@@ -1,7 +1,13 @@
-function Particle(x,y, shower, shape, rand) {
+function Particle(x,y, shower, shape, rand, hu) {
   this.pos = createVector(x,y);
   this.lifespan = 255;
   this.shower = shower;
+  // if (hu){
+  //   this.hu = hu;
+  // } else {
+  //   this.hu = random(255);
+  // }
+  this.hu = hu;
   if (this.shower){
     if (shape === "circle"){
         this.vel = createVector(random(-.5,3), random(-.5,3));
@@ -32,17 +38,18 @@ function Particle(x,y, shower, shape, rand) {
   };
 
   this.draw = function() {
+    colorMode(HSB);
     if (this.shower){
       strokeWeight(3);
-      stroke(255, this.lifespan);
+      stroke(this.hu, 255, 255, this.lifespan);
     } else {
-    stroke(255);
+    stroke(this.hu, 255, 255);
   }
     point(this.pos.x, this.pos.y);
   };
 
   this.fin = function() {
-    if (this.life <= 0){
+    if (this.lifespan <= 0){
       return true;
     }
     return false;

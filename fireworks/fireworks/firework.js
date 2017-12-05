@@ -1,5 +1,6 @@
 function Firework(){
-  this.firework = new Particle(random(width), height, false, null, false);
+  this.hu = random(255);
+  this.firework = new Particle(random(width), height, false, null, false, this.hu);
   this.exploded = false;
   this.shower = [];
 
@@ -33,7 +34,7 @@ function Firework(){
     }
 
     for (var i = 0; i < 100; i++) {
-      var part = new Particle(this.firework.pos.x, this.firework.pos.y, true, shape, rand);
+      var part = new Particle(this.firework.pos.x, this.firework.pos.y, true, shape, rand, this.hu);
       this.shower.push(part);
     }
   };
@@ -45,5 +46,13 @@ function Firework(){
     for (var i = 0; i < this.shower.length; i++) {
       this.shower[i].draw();
     }
+  };
+
+  this.fin = function() {
+    // console.log(this.shower.length);
+    if (this.exploded && this.shower.length <= 0) {
+      return true;
+    }
+    return false;
   };
 }
