@@ -1,12 +1,18 @@
-var stack;
+var stacks = [];
+var number = 40
+var letSize = 30;
 function setup() {
 createCanvas(window.innerWidth, innerHeight);
-stack = new Stack(5);
-stack.buildStack();
+for (var i = 0; i < number; i++) {
+  stacks.push(new Stack(letSize, (i * letSize)));
+  stacks[i].buildStack();
+}
 }
 
 function draw() {
   background(0);
-  stack.render();
+  for (var i = 0; i < stacks.length; i++) {
+    stacks[i].render();
+  }
   
 }
