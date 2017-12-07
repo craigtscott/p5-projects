@@ -14,10 +14,7 @@ function Letter(x,y){
   }
   
   this.fall = function(){
-    this.pos.y += 10;
-    if (this.pos.y > height) {
-      this.pos.y -= height;
-    }
-    
+    this.pos.y += 5;
   }
+  
 }

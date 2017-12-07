@@ -1,11 +1,12 @@
-var letter;
+var stack;
 function setup() {
 createCanvas(window.innerWidth, innerHeight);
-letter = new Letter();
+stack = new Stack(5);
+stack.buildStack();
 }
 
 function draw() {
   background(0);
-  letter.render();
+  stack.render();
   
 }
