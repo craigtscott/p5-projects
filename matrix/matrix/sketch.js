@@ -1,5 +1,5 @@
 var stacks = [];
-var number = 40
+var number = 40;
 var letSize = 30;
 function setup() {
 createCanvas(window.innerWidth, innerHeight);
@@ -14,5 +14,5 @@ function draw() {
   for (var i = 0; i < stacks.length; i++) {
     stacks[i].render();
   }
-  
+
 }
