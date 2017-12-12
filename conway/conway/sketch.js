@@ -13,7 +13,7 @@ let resolution = 40;
 function setup() {
   createCanvas(400,400);
   cols = width / resolution;
-  rows - height / resolution;
+  rows = height / resolution;
   feild = makeFeild(cols, rows);
   for (let i = 0; i < feild.length; i++) {
     for (let j = 0; j < feild[i].length; j++) {
