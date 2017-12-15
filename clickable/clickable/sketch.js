@@ -45,6 +45,7 @@ function draw() {
 
   if(order.length === 0 && pop === true) {
     pop = false;
+    count = 0;
   }
 
 
