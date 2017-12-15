@@ -40,7 +40,7 @@ function draw() {
     frameRate(5);
   if (order.length > 0 && pop === true) {
     box = order.pop();
-    box.color = 0;
+    box.color = "#ffffff";
   }
 
   if(order.length === 0 && pop === true) {
