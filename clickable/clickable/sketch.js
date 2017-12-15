@@ -6,13 +6,26 @@ var locations = [ [225, 175], [275,175], [325, 175],
                   [225, 375], [275,375], [325, 375]
 
                 ];
+var colors = ["#FF0000",
+            "#8b0000",
+            "#FFA500",
+            "#ee7600",
+            "#FFFF00",
+            "#00FF00",
+            "#006400",
+            "#0000FF",
+            "#000080",
+            "#4B0082",
+            "#9400D3"];
 var order = [];
+var count = 0;
 var pop = false;
 function setup() {
   createCanvas(600,600);
   for (var i = 0; i < locations.length; i++) {
     boxes.push(new Box(locations[i]));
   }
+
 
 }
 
@@ -45,10 +58,13 @@ function mouseClicked() {
         this.pos.x < boxes[i].pos.x + 50 &&
         this.pos.y > boxes[i].pos.y &&
         this.pos.y < boxes[i].pos.y + 50 &&
-        boxes[i].color ===0 ) {
+        boxes[i].color === "#ffffff" ) {
 
-        boxes[i].color = 255;
+        console.log( colors[count] );
+        boxes[i].color = colors[count];
+        console.log(boxes[i].color);
         order.push(boxes[i]);
+        count += 1;
 
     }
   }
@@ -56,7 +72,7 @@ function mouseClicked() {
 
 function Box(pos) {
   this.pos =createVector(pos[0], pos[1]);
-  this.color = 0;
+  this.color = "#ffffff";
 
   this.render = function() {
     stroke(51);
