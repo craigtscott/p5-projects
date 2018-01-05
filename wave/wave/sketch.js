@@ -12,7 +12,7 @@ function setup() {
 function draw() {
   background(100);
   ortho(-400, 400, 400, -400, 0, 1000);
-  rotateX(-ma);
+  rotateX(ma);
   rotateY(-QUARTER_PI);
 
 
@@ -31,6 +31,6 @@ function draw() {
     }
   }
 
-  angle += 0.05;
+  angle -= 0.05;
 
 }
