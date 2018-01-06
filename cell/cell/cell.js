@@ -13,4 +13,13 @@ function Cell () {
     noStroke();
     ellipse(this.pos.x, this.pos.y, this.r, this.r);
   };
+
+  this.clicked = function(x, y) {
+    var d = dist(this.pos.x, this.pos.y, x, y);
+    if (d < this.r){
+      return true;
+    } else {
+      return false;
+    }
+  };
 }
