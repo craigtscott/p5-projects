@@ -1,7 +1,11 @@
-function Cell () {
-  this.pos = createVector(random(width), random(height));
-  this.r = 35;
-  this.c = color(0, random(100,255), random(100,255));
+function Cell (pos, r, c) {
+  if (pos) {
+    this.pos = pos.copy();
+  } else {
+    this.pos = createVector(random(width), random(height));
+  }
+  this.r = r || 35;
+  this.c = c || color(0, random(100,255), random(100,255));
 
   this.move = function() {
     var vel = p5.Vector.random2D();
@@ -21,5 +25,10 @@ function Cell () {
     } else {
       return false;
     }
+  };
+
+  this.mitosis = function() {
+    var cell = new Cell(this.pos,  this.r/2, this.c);
+    return cell;
   };
 }

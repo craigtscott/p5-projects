@@ -14,9 +14,12 @@ function draw () {
 }
 
 function mousePressed() {
-  for (var i = 0; i < cells.length; i++) {
+  for (var i = cells.length - 1; i >= 0; i--) {
     if (cells[i].clicked(mouseX, mouseY)){
-      console.log("True");
+      console.log("hit");
+      cells.push(cells[i].mitosis());
+      cells.push(cells[i].mitosis());
+      cells.splice(i, 1);
     }
 
   }
