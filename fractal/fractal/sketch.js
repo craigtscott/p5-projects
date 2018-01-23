@@ -6,10 +6,17 @@ function setup() {
 function draw() {
   background(60);
   stroke(255);
+  translate(width/2, height);
   branch(100);
 
 }
 
 function branch(len){
-  line(width/2, height, width/2, height - len);
+  line(0, 0,0, - len);
+  translate(0,-len);
+  rotate(PI/7);
+  branch(len* 0.75);
+
+
+
 }
