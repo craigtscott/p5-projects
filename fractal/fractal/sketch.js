@@ -18,10 +18,15 @@ function branch(len){
 
   line(0, 0,0, - len);
   translate(0,-len);
-  rotate(angle);
   if (len > 5){
+    push();
+    rotate(angle);
     branch(len* 0.75);
-
+    pop();
+    push();
+    rotate(-angle);
+    branch(len* 0.75);
+    pop();
   }
 
 
