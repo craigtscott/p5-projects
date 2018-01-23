@@ -1,7 +1,10 @@
 var cells = [];
 function setup() {
+  var start = random(8);
   createCanvas(600,600);
-  cells.push(new Cell());
+  for (var i = 0; i < start; i++) {
+    cells.push(new Cell());
+  }
 }
 
 function draw () {
