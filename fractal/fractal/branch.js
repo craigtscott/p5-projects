@@ -12,7 +12,7 @@ function Branch(h,t, c){
 
   this.branches = function() {
     var dir = p5.Vector.sub(this.tail, this.head);
-    // dir.mult(0.75);
+    dir.mult(0.75);
 
     var dirR = dir.rotate(angle);
     var newTailR = p5.Vector.add(this.tail, dirR);

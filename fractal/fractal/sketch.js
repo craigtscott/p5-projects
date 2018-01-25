@@ -11,9 +11,14 @@ function setup() {
 }
 
 function mousePressed(){
-  var newBranches = tree[0].branches();
-  tree[1] = newBranches[0];
-  tree[2] = newBranches[1];
+  console.log(tree.length);
+  if (tree.length < 177146){
+    for (var i = tree.length - 1; i >= 0 ; i--) {
+      var newBranches = tree[i].branches();
+      tree.push(newBranches[0]);
+      tree.push(newBranches[1]);
+    }
+  }
 
 }
 
