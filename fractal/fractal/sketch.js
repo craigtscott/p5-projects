@@ -1,18 +1,29 @@
 var angle = .44879;
-var root;
+var tree = [];
 // var slider;
 function setup() {
   createCanvas(600,600);
   // slider = createSlider(0, PI, angle, 0.01);
   var a = createVector(width/2, height);
   var b = createVector(width/2, height-100);
-  root = new Branch(a, b);
+  root = new Branch(a, b, "white");
+  tree[0] = root;
+}
+
+function mousePressed(){
+  var newBranches = tree[0].branches();
+  tree[1] = newBranches[0];
+  tree[2] = newBranches[1];
+
 }
 
 function draw() {
   background(60);
   // angle = slider.value();
-  root.show();
+  for (var i = 0; i < tree.length; i++) {
+    tree[i].show();
+
+  }
 }
 
 // function branch(len){
