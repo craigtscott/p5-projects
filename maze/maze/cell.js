@@ -13,12 +13,13 @@ function Cell(i,j){
   this.show = function() {
     var x = this.i * w;
     var y = this.j * w;
-    stroke(255);
     noFill();
     if (this.visited === true) {
-      fill(100,255,30, 300);
+      noStroke();
+      fill(100,255,30, 100);
       rect(x,y,w,w);
     }
+    stroke(255);
     if (this.walls[0]){
       line(x,y,x+w,y);
     }
