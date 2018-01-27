@@ -4,11 +4,21 @@ function index(i,j){
   }
     return i + j * cols;
 }
+
+
 function Cell(i,j){
   this.i = i;
   this.j = j;
   this.walls = [true, true, true, true];
   this.visited = false;
+
+  this.highlight = function() {
+    var x = this.i * w;
+    var y = this.j * w;
+    noStroke();
+    fill(10,50,25);
+    rect(x,y,w,w);
+  };
 
   this.show = function() {
     var x = this.i * w;
@@ -63,7 +73,9 @@ function Cell(i,j){
       return neighbors[r];
 
     } else {
-      return undifined;
+      return false;
     }
   };
+
+
 }

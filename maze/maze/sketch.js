@@ -2,6 +2,7 @@ var cols, rows;
 var w =40;
 var grid = [];
 var current;
+var stack = [];
 function setup() {
   createCanvas(600,600);
   cols = floor(width/w);
@@ -20,24 +21,29 @@ function setup() {
 
 function draw() {
   background(60);
+
   for (var i = 0; i < grid.length; i++) {
     grid[i].show();
   }
 
   current.visited = true;
+  current.highlight();
   var neighbor = current.checkNeighbors();
 
   if (neighbor){
     neighbor.visited = true;
-
+    stack.push(current);
     removeWalls(current, neighbor);
     current = neighbor;
+  }
+  if (stack.length > 0 && neighbor === false) {
+    current = stack.pop();
+
   }
 }
 
 function removeWalls (a,b) {
   var x = a.i - b.i;
-  console.log(a);
   if (x === 1 ){
     a.walls[3] = false;
     b.walls[1] = false;
