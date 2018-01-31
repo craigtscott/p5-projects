@@ -11,6 +11,8 @@ function setup() {
   let x = 0;
   let y = (rows - 1) * resolution;
   let dir = 1;
+
+  player = new Player();
   for (var i = 0; i < cols*rows; i++) {
     let tile = new Tile(x, y, resolution, i, i + 1);
     tiles.push(tile);
@@ -30,4 +32,6 @@ function draw() {
   for (let tile of tiles) {
     tile.render();
   }
+  player.render(tiles);
+
 }

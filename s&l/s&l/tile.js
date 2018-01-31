@@ -12,6 +12,12 @@ class Tile {
     }
   };
 
+  getCenter() {
+    let cx = this.x + this.wh/2;
+    let cy = this.y + this.wh/2;
+    return [cx, cy];
+  }
+
   render() {
     fill(this.color);
     rect(this.x, this.y, this.wh, this.wh);
