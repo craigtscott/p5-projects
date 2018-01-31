@@ -13,4 +13,8 @@ class Player {
     let center = current.getCenter();
     ellipse(center[0], center[1], 50, 50);
   }
+
+  reset() {
+    this.spot = 0;
+  }
 }
