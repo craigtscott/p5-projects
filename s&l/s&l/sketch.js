@@ -33,5 +33,14 @@ function draw() {
     tile.render();
   }
   player.render(tiles);
+  player.roll();
+
+  if (player.spot >= tiles.length) {
+    player.spot = tiles.length ;
+    console.log("game over");
+    console.log(tiles.length);
+    console.log(player.spot);
+    noLoop();
+  }
 
 }
