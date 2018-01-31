@@ -1,6 +1,6 @@
 class Player {
   constructor() {
-    this.spot = 0;
+    this.reset();
   }
 
   roll() {

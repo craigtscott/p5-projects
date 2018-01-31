@@ -2,10 +2,12 @@ let tiles = [];
 let player;
 let rolls = [];
 let index = 0;
-let averageRoll = 0;
+let averageRoll = -1;
+let average;
 
 function setup() {
   createCanvas(600,600);
+  average = createP('');
   rolls[index]=0;
   let resolution = 100;
   let cols = width/resolution;
@@ -51,12 +53,12 @@ function draw() {
   }
 
 
-  if (index == 100) {
     let total = 0;
-    for (var i = 0; i < rolls.length; i++) {
+    for (var i = 0; i < rolls.length-1; i++) {
       total += rolls[i];
     }
-    console.log(total/100);
-    noLoop();
-  }
+    let avg = total / (rolls.length - 1);
+    average.html(avg);
+  
+
 }
