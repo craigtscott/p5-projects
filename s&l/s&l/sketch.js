@@ -32,6 +32,7 @@ function setup() {
   }
 
   tiles[17].snakeladder = -15;
+  tiles[7].snakeladder = 15;
 
 }
 
@@ -39,8 +40,12 @@ function draw() {
   background(100);
 
   for (let tile of tiles) {
-    tile.render(tiles);
+    tile.render();
   }
+  for (let tile of tiles) {
+    tile.showSnakeLadders(tiles);
+  }
+
   player.render(tiles);
   player.roll(tiles);
   rolls[index]++;

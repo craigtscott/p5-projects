@@ -18,20 +18,23 @@ class Tile {
     return [cx, cy];
   }
 
-  render(tiles) {
+  render() {
     fill(this.color);
     rect(this.x, this.y, this.wh, this.wh);
-
+  }
+  showSnakeLadders(tiles) {
+    push();
     if (this.snakeladder !== 0){
       let myc = this.getCenter();
       let nxtc = tiles[this.index + this.snakeladder].getCenter();
-      push();
       strokeWeight(5);
-      stroke(255,0,0);
+      if (this.snakeladder < 0){
+        stroke(255,0,0);
+      } else {
+        stroke(0,150,20);
+      }
       line(myc[0], myc[1], nxtc[0], nxtc[1]);
-      pop();
-
     };
-
+    pop();
   }
 }
