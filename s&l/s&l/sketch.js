@@ -6,6 +6,7 @@ let averageRoll = -1;
 let average;
 
 function setup() {
+  frameRate(5);
   createCanvas(600,600);
   average = createP('');
   rolls[index]=0;
@@ -18,6 +19,7 @@ function setup() {
   let dir = 1;
 
   player = new Player();
+
   for (var i = 0; i < cols*rows; i++) {
     let tile = new Tile(x, y, resolution, i, i + 1);
     tiles.push(tile);
@@ -29,16 +31,18 @@ function setup() {
     }
   }
 
+  tiles[17].snakeladder = -15;
+
 }
 
 function draw() {
   background(100);
 
   for (let tile of tiles) {
-    tile.render();
+    tile.render(tiles);
   }
   player.render(tiles);
-  player.roll();
+  player.roll(tiles);
   rolls[index]++;
   let gameOver = false;
   if (player.spot >= tiles.length) {
@@ -59,6 +63,6 @@ function draw() {
     }
     let avg = total / (rolls.length - 1);
     average.html(avg);
-  
+
 
 }

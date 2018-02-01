@@ -3,9 +3,15 @@ class Player {
     this.reset();
   }
 
-  roll() {
+  roll(tiles) {
     let r = floor(random(1,4));
     this.spot += r;
+    let tile = tiles[this.spot];
+    if (tile){
+      this.spot += tile.snakeladder;
+    }
+
+
   }
   render(tiles){
     let current = tiles[this.spot];
