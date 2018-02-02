@@ -54,9 +54,16 @@ function draw() {
   player.render(tiles);
   if (state === ROLLING)  {
     player.rollDie();
+    rolls[index]++;
     player.showPreview(tiles);
+    state = MOVING;
   }
-  rolls[index]++;
+
+  if (state === MOVING) {
+    player.move(tiles);
+    state = ROLLING;
+  }
+  player.render(tiles);
 //   let gameOver = false;
 //   if (player.spot >= tiles.length) {
 //     player.spot = tiles.length ;

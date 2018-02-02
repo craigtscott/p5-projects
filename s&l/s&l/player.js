@@ -8,6 +8,9 @@ class Player {
     this.roll = floor(random(1,4));
     this.next = this.spot + this.roll;
   }
+  move() {
+    this.spot = this.next;
+  }
 
   showPreview(tiles){
     let end = min(this.next, tiles.length);
