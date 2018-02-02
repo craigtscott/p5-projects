@@ -18,6 +18,12 @@ class Tile {
     return [cx, cy];
   }
 
+  hilight() {
+    fill(0,255,1,100);
+    noStroke();
+    rect(this.x, this.y, this.wh, this.wh);
+  }
+
   render() {
     fill(this.color);
     rect(this.x, this.y, this.wh, this.wh);

@@ -1,10 +1,21 @@
 class Player {
   constructor() {
     this.reset();
+
   }
 
-  roll(tiles) {
-    let r = floor(random(1,4));
+  rollDie(tiles) {
+    this.roll = floor(random(1,4));
+    this.next = this.spot + this.roll;
+  }
+
+  showPreview(tiles){
+    let end = min(this.next, tiles.length);
+    for (var i = this.spot; i < end; i++) {
+      tiles[i].hilight();
+    }
+  }
+  something() {
     this.spot += r;
     let tile = tiles[this.spot];
     if (tile){
@@ -22,5 +33,7 @@ class Player {
 
   reset() {
     this.spot = 0;
+    this.roll = -1;
+    this.next = -1;
   }
 }

@@ -1,3 +1,8 @@
+const ROLLING = 0;
+const MOVING = 1;
+const SNADDER = 2;
+let state = ROLLING;
+
 let tiles = [];
 let player;
 let rolls = [];
@@ -47,27 +52,30 @@ function draw() {
   }
 
   player.render(tiles);
-  player.roll(tiles);
+  if (state === ROLLING)  {
+    player.rollDie();
+    player.showPreview(tiles);
+  }
   rolls[index]++;
-  let gameOver = false;
-  if (player.spot >= tiles.length) {
-    player.spot = tiles.length ;
-    console.log("game over");
-    gameOver = true;
-  }
-  if (gameOver){
-    player.reset();
-    index++;
-    rolls[index] = 0;
-  }
-
-
-    let total = 0;
-    for (var i = 0; i < rolls.length-1; i++) {
-      total += rolls[i];
-    }
-    let avg = total / (rolls.length - 1);
-    average.html(avg);
-
-
+//   let gameOver = false;
+//   if (player.spot >= tiles.length) {
+//     player.spot = tiles.length ;
+//     console.log("game over");
+//     gameOver = true;
+//   }
+//   if (gameOver){
+//     player.reset();
+//     index++;
+//     rolls[index] = 0;
+//   }
+//
+//
+//     let total = 0;
+//     for (var i = 0; i < rolls.length-1; i++) {
+//       total += rolls[i];
+//     }
+//     let avg = total / (rolls.length - 1);
+//     average.html(avg);
+//
+//
 }
