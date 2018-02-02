@@ -60,9 +60,12 @@ function draw() {
   } else if (state === MOVING) {
     player.move(tiles);
     if (player.isSnadder(tiles)) {
-      console.log("check");
+      state = SNADDER;
+    } else {
+      state = ROLLING;
     }
-    state = ROLLING;
+  } else if (state === SNADDER) {
+    player.moveSnadder();
   }
   player.render(tiles);
 //   let gameOver = false;

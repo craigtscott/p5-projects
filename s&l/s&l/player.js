@@ -11,6 +11,10 @@ class Player {
   move() {
     this.spot = this.next;
   }
+  moveSnadder() {
+    let tile = tiles[this.spot];
+    this.spot += tile.snakeladder;
+  }
 
   showPreview(tiles){
     let end = min(this.next, tiles.length);
