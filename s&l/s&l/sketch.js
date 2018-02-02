@@ -66,27 +66,28 @@ function draw() {
     }
   } else if (state === SNADDER) {
     player.moveSnadder();
+    state = ROLLING;
   }
   player.render(tiles);
-//   let gameOver = false;
-//   if (player.spot >= tiles.length) {
-//     player.spot = tiles.length ;
-//     console.log("game over");
-//     gameOver = true;
-//   }
-//   if (gameOver){
-//     player.reset();
-//     index++;
-//     rolls[index] = 0;
-//   }
-//
-//
-//     let total = 0;
-//     for (var i = 0; i < rolls.length-1; i++) {
-//       total += rolls[i];
-//     }
-//     let avg = total / (rolls.length - 1);
-//     average.html(avg);
-//
-//
+  let gameOver = false;
+  if (player.spot >= tiles.length) {
+    player.spot = tiles.length ;
+    console.log("game over");
+    gameOver = true;
+  }
+  if (gameOver){
+    player.reset();
+    index++;
+    rolls[index] = 0;
+  }
+
+
+    let total = 0;
+    for (var i = 0; i < rolls.length-1; i++) {
+      total += rolls[i];
+    }
+    let avg = total / (rolls.length - 1);
+    average.html(avg);
+
+
 }

@@ -17,7 +17,7 @@ class Player {
   }
 
   showPreview(tiles){
-    let end = min(this.next, tiles.length);
+    let end = min(this.next, tiles.length - 1);
     for (var i = this.spot; i <= end; i++) {
       tiles[i].hilight();
     }
@@ -29,8 +29,12 @@ class Player {
   render(tiles){
     let current = tiles[this.spot];
     fill(125);
-    let center = current.getCenter();
-    ellipse(center[0], center[1], 50, 50);
+
+    if (current) {
+      let center = current.getCenter();
+      ellipse(center[0], center[1], 50, 50);
+    }
+
   }
 
   reset() {
