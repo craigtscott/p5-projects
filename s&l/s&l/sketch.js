@@ -57,10 +57,11 @@ function draw() {
     rolls[index]++;
     player.showPreview(tiles);
     state = MOVING;
-  }
-
-  if (state === MOVING) {
+  } else if (state === MOVING) {
     player.move(tiles);
+    if (player.isSnadder(tiles)) {
+      console.log("check");
+    }
     state = ROLLING;
   }
   player.render(tiles);

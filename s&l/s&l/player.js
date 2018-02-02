@@ -14,18 +14,13 @@ class Player {
 
   showPreview(tiles){
     let end = min(this.next, tiles.length);
-    for (var i = this.spot; i < end; i++) {
+    for (var i = this.spot; i <= end; i++) {
       tiles[i].hilight();
     }
   }
-  something() {
-    this.spot += r;
+  isSnadder() {
     let tile = tiles[this.spot];
-    if (tile){
-      this.spot += tile.snakeladder;
-    }
-
-
+    return (tile && tile.snakeladder !==0);
   }
   render(tiles){
     let current = tiles[this.spot];
