@@ -1,7 +1,7 @@
-
+var slider;
 function setup() {
   createCanvas(600,600);
-
+  slider = createSlider(0,10,2,0.1);
 }
 
 function sgn(num) {
@@ -22,7 +22,7 @@ function draw() {
   var rad = 200;
   var a = 200;
   var b = 200;
-  var n = 4;
+  var n = slider.value();
   beginShape();
   for (var ang = 0; ang < TWO_PI; ang += 0.1) {
     var na = 2/n;
