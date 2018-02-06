@@ -45,8 +45,10 @@ function draw() {
   // var a = 200;
   // var b = 200;
   var n = slider.value();
+  var total = 500;
+  var inc = TWO_PI / total;
   beginShape();
-  for (var ang = 0; ang < TWO_PI; ang += 0.1) {
+  for (var ang = 0; ang < TWO_PI; ang += inc) {
     var na = 2/n;
     var rad = supershape(ang);
     var x = 100 *rad * cos(ang);
