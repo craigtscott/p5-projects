@@ -3,7 +3,7 @@ var slider;
 var n1 = 1;
 var n2 = 1;
 var n3 = 1;
-var m = 1;
+var m = 5;
 var a = 1;
 var b = 1;
 
@@ -12,10 +12,18 @@ function setup() {
   slider = createSlider(0,10,2,0.1);
 }
 
-function supershape(a) {
+function supershape(theta) {
   var r = 1;
+  var part1 = (1/a) * cos(theta*m/4);
+  part1 = abs(part1);
+  part1 = pow(part1, n2);
 
-  return r;
+  var part2 = (1/b) * sin(theta*m/4);
+  part2 = abs(part2);
+  part2 = pow(part2, n3);
+
+  var part3 = pow(part1 + part2, 1 / n1);
+  return (1 / part3);
 }
 
 function sgn(num) {
