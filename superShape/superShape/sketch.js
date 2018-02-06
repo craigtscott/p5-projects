@@ -9,7 +9,7 @@ var b = 1;
 
 function setup() {
   createCanvas(600,600);
-  slider = createSlider(0,10,2,0.1);
+  slider = createSlider(0,10,5,1);
 }
 
 function supershape(theta) {
@@ -44,12 +44,12 @@ function draw() {
   var rad = 200;
   // var a = 200;
   // var b = 200;
-  var n = slider.value();
+  m = slider.value();
   var total = 500;
   var inc = TWO_PI / total;
   beginShape();
   for (var ang = 0; ang < TWO_PI; ang += inc) {
-    var na = 2/n;
+
     var rad = supershape(ang);
     var x = 100 *rad * cos(ang);
     var y = 100 * rad * sin(ang);
