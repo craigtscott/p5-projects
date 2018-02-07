@@ -3,30 +3,37 @@
 function setup() {
   createCanvas(600, 600);
   pixelDensity(1);
+}
+
+function draw() {
+  var max = 100;
   loadPixels();
   for (var x = 0; x < width; x++) {
     for (var y = 0; y < height; y++) {
 
-      var a = map(x, 0, width, -2, 2);
-      var b = map(y, 0, height, -2, 2);
+      var a = map(x, 0, width, -2.5, 2.5);
+      var b = map(y, 0, height, -2.5, 2.5);
       var ca = a;
       var cb = b;
       var n = 0;
-      var z = 0;
 
-      while (n < 100) {
+      while (n < max) {
         var aa = a*a - b*b;
         var bb = 2 * a * b;
 
         a = aa + ca;
         b = bb + cb;
-        if (abs(a+b)>16) {
+        if (a+b>16) {
           break;
         }
         n++;
       }
 
-      var brightness = map(n, 0, 100, 0, 255);
+      var brightness = map(n, 0, max, 0, 255);
+
+      if (n === max) {
+        brightness = 0;
+      }
 
       var pix = (x+y * width) *4;
       pixels[pix + 0] = brightness;
@@ -37,8 +44,4 @@ function setup() {
     }
   }
   updatePixels();
-}
-
-function draw() {
-
 }
