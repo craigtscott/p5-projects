@@ -29,7 +29,7 @@ function draw() {
         n++;
       }
 
-      var brightness = map(n, 0, max, 0, 255);
+      var brightness = 200;
 
       if (n === max) {
         brightness = 0;
@@ -39,7 +39,7 @@ function draw() {
       pixels[pix + 0] = brightness;
       pixels[pix + 1] = brightness;
       pixels[pix + 2] = brightness;
-      pixels[pix + 3] = brightness;
+      pixels[pix + 3] = 255;
 
     }
   }
