@@ -1,8 +1,15 @@
+var minval = -0.5;
+var maxval = 0.5;
+
+var minSlider;
+var maxSlider;
 
 
 function setup() {
   createCanvas(600, 600);
   pixelDensity(1);
+  minSlider = createSlider(-2.5, 0, -2.5, 0.1);
+  maxSlider = createSlider(0, 2.5, 2.5, 0.1);
 }
 
 function draw() {
@@ -11,8 +18,8 @@ function draw() {
   for (var x = 0; x < width; x++) {
     for (var y = 0; y < height; y++) {
 
-      var a = map(x, 0, width, -2.5, 2.5);
-      var b = map(y, 0, height, -2.5, 2.5);
+      var a = map(x, 0, width, minSlider.value(), maxSlider.value());
+      var b = map(y, 0, height, minSlider.value(), maxSlider.value());
       var ca = a;
       var cb = b;
       var n = 0;
