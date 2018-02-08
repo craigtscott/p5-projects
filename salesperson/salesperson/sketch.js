@@ -24,4 +24,14 @@ function draw() {
   }
   endShape();
 
+  var i = floor(random(cities.length));
+  var j = floor(random(cities.length));
+  swap(cities,i,j);
+
 }
+
+function swap(array, i, j) {
+  var temp = array[i];
+  array[i] = array[j];
+  array[j] = temp;
+};
