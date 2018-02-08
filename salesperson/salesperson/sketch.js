@@ -33,6 +33,12 @@ function draw() {
   var j = floor(random(cities.length));
   swap(cities,i,j);
 
+  var d = calcDist(cities);
+  if ( d < maxDist){
+    maxDist = d;
+    console.log(maxDist);
+  }
+
 }
 
 function swap(array, i, j) {
