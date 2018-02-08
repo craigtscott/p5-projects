@@ -15,4 +15,13 @@ function draw() {
     ellipse(cities[i].x, cities[i].y, 5,5);
   }
 
+  stroke(255);
+  strokeWeight(2);
+  noFill();
+  beginShape();
+  for (var i = 0; i < cities.length; i++) {
+    vertex(cities[i].x, cities[i].y);
+  }
+  endShape();
+
 }
