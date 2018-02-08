@@ -2,7 +2,7 @@ var cities = [];
 var cityCount = 5;
 
 
-var maxDist;
+var minDist;
 function setup() {
   createCanvas(600,600);
 
@@ -10,8 +10,8 @@ function setup() {
     var v = createVector(random(width), random(height));
     cities[i] = v;
   }
-  maxDist = calcDist(cities);
-  console.log(maxDist);
+  minDist = calcDist(cities);
+  console.log(minDist);
 }
 
 function draw() {
@@ -34,9 +34,9 @@ function draw() {
   swap(cities,i,j);
 
   var d = calcDist(cities);
-  if ( d < maxDist){
-    maxDist = d;
-    console.log(maxDist);
+  if ( d < minDist){
+    minDist = d;
+    console.log(minDist);
   }
 
 }
