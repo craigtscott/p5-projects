@@ -1,5 +1,8 @@
 var cities = [];
 var cityCount = 5;
+
+
+var maxDist;
 function setup() {
   createCanvas(600,600);
 
@@ -7,6 +10,8 @@ function setup() {
     var v = createVector(random(width), random(height));
     cities[i] = v;
   }
+  maxDist = calcDist(cities);
+  console.log(maxDist);
 }
 
 function draw() {
@@ -34,4 +39,13 @@ function swap(array, i, j) {
   var temp = array[i];
   array[i] = array[j];
   array[j] = temp;
+};
+
+function calcDist(points){
+  var sum = 0;
+  for (var i =0; i < points.length-1; i++){
+    var dis = dist(points[i].x, points[i].y, points[i+1].x, points[i+1].y);
+    sum += dis;
+  }
+  return sum;
 };
