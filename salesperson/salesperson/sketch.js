@@ -1,5 +1,6 @@
 var cities = [];
-var cityCount = 5;
+var shortest;
+var cityCount = 15;
 
 
 var minDist;
@@ -11,6 +12,7 @@ function setup() {
     cities[i] = v;
   }
   minDist = calcDist(cities);
+  shortest = cities.slice();
   console.log(minDist);
 }
 
@@ -29,6 +31,18 @@ function draw() {
   }
   endShape();
 
+  stroke(0,255,100);
+  strokeWeight(1);
+  noFill();
+  beginShape();
+  for (var i = 0; i < shortest.length; i++) {
+    vertex(shortest[i].x, shortest[i].y);
+  }
+  endShape();
+  ellipse(shortest[0].x, shortest[0].y, 10,10);
+  ellipse(shortest[cityCount-1].x, shortest[cityCount-1].y, 10,10);
+
+
   var i = floor(random(cities.length));
   var j = floor(random(cities.length));
   swap(cities,i,j);
@@ -36,7 +50,7 @@ function draw() {
   var d = calcDist(cities);
   if ( d < minDist){
     minDist = d;
-    console.log(minDist);
+    shortest = cities.slice();
   }
 
 }
