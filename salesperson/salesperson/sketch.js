@@ -8,14 +8,14 @@ var order =[];
 var minDist;
 function setup() {
   createCanvas(600,600);
-
+  frameRate(5);
   for (var i = 0; i < cityCount; i++) {
     var v = createVector(random(width), random(height));
     cities[i] = v;
     order[i] = i;
 
   }
-  minDist = calcDist(cities);
+  minDist = calcDist(cities, order);
   shortest = cities.slice();
   console.log(minDist);
 }
@@ -30,8 +30,9 @@ function draw() {
   strokeWeight(2);
   noFill();
   beginShape();
-  for (var i = 0; i < cities.length; i++) {
-    vertex(cities[i].x, cities[i].y);
+  for (var i = 0; i < order.length; i++) {
+    var n = order[i];
+    vertex(cities[n].x, cities[n].y);
   }
   endShape();
 
@@ -39,22 +40,23 @@ function draw() {
   strokeWeight(1);
   noFill();
   beginShape();
-  for (var i = 0; i < shortest.length; i++) {
-    vertex(shortest[i].x, shortest[i].y);
+  for (var i = 0; i < order.length; i++) {
+    var n = shortest[i];
+    vertex(cities[i].x, cities[i].y);
   }
   endShape();
   ellipse(shortest[0].x, shortest[0].y, 10,10);
   ellipse(shortest[cityCount-1].x, shortest[cityCount-1].y, 10,10);
 
 
-  var i = floor(random(cities.length));
-  var j = floor(random(cities.length));
-  swap(cities,i,j);
+  // var i = floor(random(cities.length));
+  // var j = floor(random(cities.length));
+  // swap(cities,i,j);
 
-  var d = calcDist(cities);
+  var d = calcDist(cities, order);
   if ( d < minDist){
     minDist = d;
-    shortest = cities.slice();
+    shortest = order.slice();
   }
 
   textSize(64);
@@ -74,10 +76,14 @@ function swap(array, i, j) {
   array[j] = temp;
 };
 
-function calcDist(points){
+function calcDist(points, order){
   var sum = 0;
-  for (var i =0; i < points.length-1; i++){
-    var dis = dist(points[i].x, points[i].y, points[i+1].x, points[i+1].y);
+  for (var i =0; i < order.length-1; i++){
+    var cityAIndex = order[i];
+    var cityA = points[cityAIndex];
+    var cityBIndex = order[i+1];
+    var cityB = points[cityBIndex];
+    var dis = dist(cityA.x, cityA.y, cityB.x, cityB.y);
     sum += dis;
   }
   return sum;
@@ -108,12 +114,4 @@ function nextOrder() {
   endArray.reverse();
   order = order.concat(endArray);
 
-  // background(0);
-  // textSize(50);
-  // var s = "";
-  // for (var i = 0; i < order.length; i++) {
-  //   s += order[i];
-  // }
-  // fill(255);
-  // text(s, 20, height-15);
 }
