@@ -8,7 +8,7 @@ var order =[];
 var minDist;
 function setup() {
   createCanvas(600,600);
-  frameRate(5);
+
   for (var i = 0; i < cityCount; i++) {
     var v = createVector(random(width), random(height));
     cities[i] = v;
@@ -97,7 +97,13 @@ function nextOrder() {
       largestI = i;
     }
   }
+
   if (largestI === -1) {
+    textSize(64);
+    var s = shortest.join('');
+    fill(255);
+    text(s, 400, height-15);
+    nextOrder();
     noLoop();
     console.log("fin");
   }
