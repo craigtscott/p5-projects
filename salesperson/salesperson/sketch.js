@@ -1,6 +1,8 @@
 var cities = [];
 var shortest;
-var cityCount = 15;
+var cityCount = 4;
+
+var order =[];
 
 
 var minDist;
@@ -10,6 +12,8 @@ function setup() {
   for (var i = 0; i < cityCount; i++) {
     var v = createVector(random(width), random(height));
     cities[i] = v;
+    order[i] = i;
+
   }
   minDist = calcDist(cities);
   shortest = cities.slice();
@@ -53,6 +57,15 @@ function draw() {
     shortest = cities.slice();
   }
 
+  textSize(64);
+  var s = "";
+  for (var i = 0; i < order.length; i++) {
+    s += order[i];
+  }
+
+  fill(255);
+  text(s, 20, height-15);
+  nextOrder();
 }
 
 function swap(array, i, j) {
@@ -69,3 +82,38 @@ function calcDist(points){
   }
   return sum;
 };
+
+function nextOrder() {
+
+  var largestI = -1;
+  for (var i = 0; i < order.length; i++) {
+    if (order[i] < order[i + 1]) {
+      largestI = i;
+    }
+  }
+  if (largestI === -1) {
+    noLoop();
+    console.log("fin");
+  }
+  var largestJ = -1;
+  for (var j = 0; j < order.length; j++) {
+    if (order[largestI] < order[j]) {
+      largestJ = j;
+    }
+  }
+
+  swap(order, largestI, largestJ);
+
+  var endArray = order.splice(largestI + 1);
+  endArray.reverse();
+  order = order.concat(endArray);
+
+  // background(0);
+  // textSize(50);
+  // var s = "";
+  // for (var i = 0; i < order.length; i++) {
+  //   s += order[i];
+  // }
+  // fill(255);
+  // text(s, 20, height-15);
+}
