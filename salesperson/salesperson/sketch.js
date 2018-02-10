@@ -1,8 +1,11 @@
 var cities = [];
 var shortest;
-var cityCount = 4;
+var cityCount = 8;
 
 var order =[];
+var totalperm = factor(cityCount);
+ var count = 0;
+
 
 
 var minDist;
@@ -17,7 +20,6 @@ function setup() {
   }
   minDist = calcDist(cities, order);
   shortest = cities.slice();
-  console.log(minDist);
 }
 
 function draw() {
@@ -67,6 +69,14 @@ function draw() {
 
   fill(255);
   text(s, 20, height-15);
+
+
+  if (count < totalperm) {
+    var t = 100 * (count / totalperm);
+    textSize(64);
+    fill(255);
+    text(nf(t, 0,2), 400, height-15);
+  }
   nextOrder();
 }
 
@@ -119,5 +129,13 @@ function nextOrder() {
   var endArray = order.splice(largestI + 1);
   endArray.reverse();
   order = order.concat(endArray);
+ count++;
+}
 
+function factor(n) {
+  if (n === 1) {
+    return 1;
+  } else {
+    return n * factor(n - 1);
+  }
 }
