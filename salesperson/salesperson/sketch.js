@@ -13,7 +13,7 @@ function setup() {
   createCanvas(600,600);
 
   for (var i = 0; i < cityCount; i++) {
-    var v = createVector(random(width), random(height));
+    var v = createVector(random(width), random(height - 100));
     cities[i] = v;
     order[i] = i;
 
@@ -72,10 +72,10 @@ function draw() {
 
 
   if (count < totalperm) {
-    var t = 100 * (count / totalperm);
-    textSize(64);
     fill(255);
-    text(nf(t, 0,2), 400, height-15);
+  var t = 100 * (count / totalperm);
+  textSize(64);
+  text(nf(t, 0,2), 400, height-15);
   }
   nextOrder();
 }
@@ -109,11 +109,13 @@ function nextOrder() {
   }
 
   if (largestI === -1) {
+    fill(0);
+    noStroke();
+    rect(400, height-100, 200, 100);
     textSize(64);
-    var s = shortest.join('');
     fill(255);
+    var s = shortest.join('');
     text(s, 400, height-15);
-    nextOrder();
     noLoop();
     console.log("fin");
   }
