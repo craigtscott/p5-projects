@@ -1,5 +1,6 @@
 var video;
 var button;
+var shots = [];
 
 function setup() {
   createCanvas(640,480);
@@ -18,5 +19,6 @@ function draw() {
 }
 
 function takesnap() {
-  image(video, 0, 0);
+  shots.push(video.get());
+  // image(video, 0, 0);
 }
