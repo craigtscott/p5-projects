@@ -2,6 +2,7 @@ var video;
 var button;
 var shots = [];
 var counter = 0;
+var total = 35;
 
 function setup() {
   createCanvas(640,480);
@@ -24,7 +25,7 @@ function draw() {
       shots[counter] = video.get();
       counter++;
 
-      if (counter === 25) {
+      if (counter === total) {
         counter = 0;
       }
   }
@@ -33,7 +34,8 @@ function draw() {
   var x = 0;
   var y = 0;
   for (var i = 0; i < shots.length; i++) {
-    image(shots[i], x, y, wid, heg);
+    var idx = (i + frameCount) % shots.length;
+    image(shots[idx], x, y, wid, heg);
     x = x + wid;
     if (x > width - wid) {
       x = 0;
