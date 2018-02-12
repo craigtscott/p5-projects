@@ -3,6 +3,7 @@ function setup() {
   createCanvas(640,480);
   background(50);
   video = createCapture(VIDEO);
+  video.hide();
 
 }
 
