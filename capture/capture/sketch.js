@@ -5,10 +5,10 @@ var shots = [];
 function setup() {
   createCanvas(640,480);
   background(50);
-  video = createCapture(VIDEO);
-  // video.hide();
   button = createButton('snap');
   button.mousePressed(takesnap);
+  video = createCapture(VIDEO);
+  // video.hide();
 
 
 }
