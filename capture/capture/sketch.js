@@ -14,8 +14,17 @@ function setup() {
 }
 
 function draw() {
+  var wid = width / 5;
+  var heg = height / 5;
+  var x = 0;
+  var y = 0;
   for (var i = 0; i < shots.length; i++) {
-    image(shots[i], i*(width/5), 0, width / 5, height / 5);
+    image(shots[i], x, y, wid, heg);
+    x = x + wid;
+    if (x > width - wid) {
+      x = 0;
+      y = y + heg;
+    }
   }
   // tint(0,100,50);
   // image(video, 0, 0);
