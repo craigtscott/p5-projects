@@ -1,12 +1,12 @@
 var video;
-var vScale = 8;
+
+var vScale = 16;
 
 function setup() {
   createCanvas(640,480);
   pixelDensity(1);
   video = createCapture(VIDEO);
   video.size(width/vScale, height/vScale);
-
 }
 
 function draw() {
@@ -14,17 +14,22 @@ function draw() {
 
   video.loadPixels();
   loadPixels();
-  for (var x = 0; x < video.width; x++) {
-    for (var y = 0; y < video.height; y++) {
-        var idx = (x + y * video.width)*4;
+  for (var y = 0; y < video.height; y++) {
+    for (var x = 0; x < video.width; x++) {
+        var idx = (video.width - x + 1 + (y * video.width))*4;
         var r = video.pixels[idx];
         var b = video.pixels[idx+1];
         var g = video.pixels[idx+2];
 
-        var bright = (r*b*g)/3;
+        var bright = (r+b+g)/3;
 
-        fill(bright);
-        rect(x*vScale, y*vScale, vScale, vScale);
+        var wid = map(bright, 0, 255, 0, vScale);
+
+        noStroke();
+        fill(255);
+        rectMode(CENTER);
+        rect(x*vScale, y*vScale, wid, wid);
+
     }
   }
 
