@@ -2,7 +2,7 @@ var video;
 var slider;
 var cols = 40;
 var rows = 30;
-
+var boxes = [];
 var vScale = 16;
 
 function setup() {
@@ -17,6 +17,7 @@ function setup() {
       var box = createCheckbox();
       box.style('display', 'inline');
       box.parent('mirror');
+      boxes.push(box);
     }
     var linebreak = createSpan('<br/>');
     linebreak.parent('mirror');
@@ -39,10 +40,14 @@ function draw() {
 
         var threashold = slider.value();
 
+        var checkIdx = x+y*cols;
+
         if (bright > threashold) {
           fill(255);
+          boxes[checkIdx].checked(false);
         } else {
           fill(0);
+          boxes[checkIdx].checked(true);
         }
 
         // var wid = map(bright, 0, 255, 0, vScale);
