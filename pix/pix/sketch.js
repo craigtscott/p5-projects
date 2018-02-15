@@ -23,12 +23,19 @@ function draw() {
 
         var bright = (r+b+g)/3;
 
-        var wid = map(bright, 0, 255, 0, vScale);
+        var threashold = 127;
+
+        if (bright > threashold) {
+          fill(255);
+        } else {
+          fill(0);
+        }
+
+        // var wid = map(bright, 0, 255, 0, vScale);
 
         noStroke();
-        fill(255);
         rectMode(CENTER);
-        rect(x*vScale, y*vScale, wid, wid);
+        rect(x*vScale, y*vScale, vScale, vScale);
 
     }
   }
