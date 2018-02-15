@@ -12,12 +12,14 @@ function setup() {
   video.size(width/vScale, height/vScale);
   slider = createSlider(0,255,19);
 
-  for (var x = 0; x < cols; x++) {
-    for (var y = 0; y < rows; y++) {
+  for (var y = 0; y < rows; y++) {
+    for (var x = 0; x < cols; x++) {
       var box = createCheckbox();
       box.style('display', 'inline');
       box.parent('mirror');
     }
+    var linebreak = createSpan('<br/>');
+    linebreak.parent('mirror');
   }
 }
 
