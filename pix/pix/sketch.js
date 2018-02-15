@@ -1,4 +1,5 @@
 var video;
+var slider;
 
 var vScale = 16;
 
@@ -7,6 +8,7 @@ function setup() {
   pixelDensity(1);
   video = createCapture(VIDEO);
   video.size(width/vScale, height/vScale);
+  slider = createSlider(0,255,127);
 }
 
 function draw() {
@@ -23,7 +25,7 @@ function draw() {
 
         var bright = (r+b+g)/3;
 
-        var threashold = 127;
+        var threashold = slider.value();
 
         if (bright > threashold) {
           fill(255);
