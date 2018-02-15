@@ -1,5 +1,7 @@
 var video;
 var slider;
+var cols = 40;
+var rows = 30;
 
 var vScale = 16;
 
@@ -8,7 +10,14 @@ function setup() {
   pixelDensity(1);
   video = createCapture(VIDEO);
   video.size(width/vScale, height/vScale);
-  slider = createSlider(0,255,127);
+  slider = createSlider(0,255,19);
+
+  for (var x = 0; x < cols; x++) {
+    for (var y = 0; y < rows; y++) {
+      console.log("hi");
+      createCheckbox();
+    }
+  }
 }
 
 function draw() {
