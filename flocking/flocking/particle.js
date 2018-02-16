@@ -16,7 +16,7 @@ function Particle(x, y) {
     var px = floor(this.x / vScale);
     var py = floor(this.y / vScale);
     var colr = video.get(px, py);
-    fill(colr[0], colr[1], colr[2]);
+    fill(colr[0], colr[1], colr[2], slider.value());
     ellipse(this.x, this.y, this.r, this.r);
   };
 
