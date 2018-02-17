@@ -19,4 +19,13 @@ function Polygon() {
     }
   };
 
+  this.close = function() {
+    var total = this.vertices.length;
+    var last = this.vertices[total -1];
+    var first = this.vertices[0];
+
+    var edge = new Edge(last, first);
+    this.edges.push(edge);
+  };
+
 }

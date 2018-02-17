@@ -7,6 +7,7 @@ function setup() {
   poly.addVertex(200,400);
   poly.addVertex(400,400);
   poly.addVertex(400,200);
+  poly.close();
   poly.show();
 
 }
