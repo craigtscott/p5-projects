@@ -1,7 +1,13 @@
-
+var poly;
 function setup() {
   createCanvas(600,600);
   background(50);
+  poly = new Polygon();
+  poly.addVertex(200,200);
+  poly.addVertex(200,400);
+  poly.addVertex(400,400);
+  poly.addVertex(400,200);
+  poly.show();
 
 }
 
@@ -14,7 +20,7 @@ function Polygon() {
   this.edges = [];
 
   this.addVertex = function(x,y) {
-    var a = createVertex(x,y);
+    var a = createVector(x,y);
     var total = this.vertices.length;
     this.vertices.push(a);
     if (total > 0) {
@@ -25,8 +31,8 @@ function Polygon() {
   };
 
   this.show = function() {
-    for (var i = 0; i < edges.length; i++) {
-      edges[i].show();
+    for (var i = 0; i < this.edges.length; i++) {
+      this.edges[i].show();
     }
   };
 
