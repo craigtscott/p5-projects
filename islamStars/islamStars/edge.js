@@ -6,4 +6,10 @@ function Edge(a,b) {
     stroke(255);
     line(this.a.x, this.a.y, this.b.x, this.b.y);
   };
+
+  this.hankin = function() {
+    var mid = p5.Vector.add(this.a, this.b);
+    mid.mult(0.5);
+    
+  };
 }
