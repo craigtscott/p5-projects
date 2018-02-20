@@ -8,6 +8,7 @@ function setup() {
   poly.addVertex(400,400);
   poly.addVertex(400,200);
   poly.close();
+  poly.hankin();
   poly.show();
 
 }

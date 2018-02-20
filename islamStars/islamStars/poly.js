@@ -13,6 +13,12 @@ function Polygon() {
     }
   };
 
+  this.hankin = function() {
+    for (var i = 0; i < this.edges.length; i++) {
+      this.edges[i].hankin();
+    }
+  };
+
   this.show = function() {
     for (var i = 0; i < this.edges.length; i++) {
       this.edges[i].show();
