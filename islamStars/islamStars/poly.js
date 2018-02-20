@@ -17,6 +17,13 @@ function Polygon() {
     for (var i = 0; i < this.edges.length; i++) {
       this.edges[i].hankin();
     }
+    for (var i = 0; i < this.edges.length; i++) {
+      if (i !== 0) {
+        this.edges[0].findEnds(this.edges[i]);
+
+      }
+    }
+
   };
 
   this.show = function() {

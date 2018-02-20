@@ -1,4 +1,5 @@
 var poly;
+var angle = 60;
 function setup() {
   createCanvas(600,600);
   background(50);
