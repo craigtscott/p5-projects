@@ -28,7 +28,10 @@ function Hankin(a,v){
     var y = this.a.y + (ub * this.v.y);
 
     if (ua > 0 && ub > 0) {
-      this.end = createVector(x,y);
+      if (!this.end) {
+        this.end = createVector(x,y);
+      }
+
     }
   };
 }
