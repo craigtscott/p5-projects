@@ -3,6 +3,7 @@ function Hankin(a,v){
   this.v = v;
   this.b = p5.Vector.add(a,v);
   this.end;
+  this.precD;
 
   this.show = function() {
     stroke(255);
@@ -28,8 +29,16 @@ function Hankin(a,v){
     var y = this.a.y + (ub * this.v.y);
 
     if (ua > 0 && ub > 0) {
+      var candidate = createVector(x,y);
+      var d1 = p5.Vector.dist(candidate, this.a);
+      var d2 = p5.Vector.dist(candidate, other.a);
+      var d = d1 + d2;
       if (!this.end) {
-        this.end = createVector(x,y);
+        this.end = candidate;
+        this.precD = d;
+      } else if (d < this.prevD){
+        this.prevD = d;
+        this.end = candidate;
       }
 
     }

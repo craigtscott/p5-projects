@@ -18,9 +18,11 @@ function Polygon() {
       this.edges[i].hankin();
     }
     for (var i = 0; i < this.edges.length; i++) {
-      if (i !== 0) {
-        this.edges[0].findEnds(this.edges[i]);
+      for (var j = 0; j < this.edges.length; j++) {
+      if (i !== j) {
+        this.edges[i].findEnds(this.edges[j]);
 
+        }
       }
     }
 
