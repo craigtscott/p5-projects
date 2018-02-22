@@ -1,74 +1,24 @@
-function makeFeild(cols, rows) {
-  let arr = new Array(cols);
-  for (var i = 0; i < arr.length; i++) {
-    arr[i] = new Array(rows);
-  }
-  return arr;
-}
-let feild;
-let cols;
-let rows;
-let resolution = 10;
+var r1 = 100;
+var r2 = 100;
+var m1  = 10;
+var m2 = 10;
+var ang1 = 0;
+var ang2 = 0;
+
 
 function setup() {
-  winWid = windowWidth - (windowWidth % 10);
-  winHe = windowHeight - (windowHeight % 10);
-  createCanvas(winWid,winHe);
-  cols = width / resolution;
-  rows = height / resolution;
-  feild = makeFeild(cols, rows);
-  for (let i = 0; i < feild.length; i++) {
-    for (let j = 0; j < feild[i].length; j++) {
-      feild[i][j] = floor(random(2));
-    }
-  }
-
-
+  createCanvas(600,600);
 }
 
 function draw() {
   background(0);
-  for (let i = 0; i < feild.length; i++) {
-    for (var j = 0; j < feild[i].length; j++) {
-      let x = i * resolution;
-      let y = j * resolution;
-      if (feild[i][j] === 1){
-        stroke(0);
-        fill(255);
-        rect(x,y,resolution, resolution);
-      }
-    }
-  }
 
-  let nextFeild = makeFeild(cols, rows);
+  translate(width/2,height/2);
 
-  for (let i = 0; i < feild.length; i++) {
-    for (var j = 0; j < feild[i].length; j++) {
-      let state = feild[i][j];
-      let sum = 0;
-      let adjCount = getAdj(feild, i, j);
+  var x1 = r1 * sin(ang1);
+  var y1 = r1 * cos(ang2);
 
-      if (state === 0 && adjCount === 3) {
-        nextFeild[i][j] = 1;
-      } else if (state === 1 && (adjCount < 2 || adjCount > 3)) {
-        nextFeild[i][j] = 0;
-      } else {
-        nextFeild[i][j] = state;
-      }
-    }
-  }
-  feild = nextFeild;
+  stroke(255);
+  line(0,0,x1,y1);
+  ellipse(x1,y1,4,4);
 }
-
-  function getAdj(feild, x, y){
-  let sum = 0;
-  for (let i = -1; i < 2; i++) {
-    for (let j = -1; j < 2; j++) {
-      let col = (x + i + cols) % cols;
-      let row = (y + j + rows) % rows;
-      sum += feild[col][row];
-    }
-  }
-  sum -= feild[x][y];
-  return sum;
-  }
