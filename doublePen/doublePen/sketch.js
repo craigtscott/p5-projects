@@ -61,10 +61,6 @@ function draw() {
   line(x1,y1,x2,y2);
   ellipse(x2,y2,m2,m2);
 
-  // ang1V += ang1A;
-  // ang2V += ang2A;
-  // ang1 += ang1V;
-  // ang2 += ang2V;
 
   ang1V += ang1A;
   ang2V += ang2A;
