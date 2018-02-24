@@ -1,5 +1,5 @@
-var n = 0;
 var c = 3;
+var phys = [];
 function setup() {
   createCanvas(600,600);
   angleMode(DEGREES);
@@ -7,16 +7,14 @@ function setup() {
   background(0);
 
 }
+function mouseClicked() {
+  phy = new Phyllo(mouseX, mouseY);
+  phys.push(phy);
+}
 
 function draw() {
-  translate(height/2, width/2);
-  ang = n * 137.5;
-  rad = c * sqrt(n);
+  for (var i = 0; i < phys.length; i++) {
+    phys[i].render();
+  }
 
-  var x = rad * cos(ang);
-  var y = rad * sin(ang);
-  fill(ang % 256, 255, 255);
-  ellipse(x,y,2);
-
-  n++;
 }
