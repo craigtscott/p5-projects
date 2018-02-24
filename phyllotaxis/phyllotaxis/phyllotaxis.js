@@ -5,11 +5,11 @@ function Phyllo(ox,oy) {
 
 
   this.render = function() {
-    translate(this.ox, this.oy);
+    // translate(this.ox, this.oy);
     ang = this.n * 137.5;
     rad = c * sqrt(this.n);
-    var x = rad * cos(ang);
-    var y = rad * sin(ang);
+    var x = rad * cos(ang) + this.ox;
+    var y = rad * sin(ang) + this.oy;
     console.log(c);
     fill(ang % 256, 255, 255);
     ellipse(x,y,2);
