@@ -21,6 +21,15 @@ function draw() {
 
 }
 
+function keyPressed() {
+  if (key === ' ') {
+    for (var i = 0; i < 4; i++) {
+      grid[i] = slideRow(grid[i]);
+    }
+  }
+  addNumber();
+}
+
 function drawGrid() {
   for (var i = 0; i < 4; i++) {
     for (var j = 0; j < 4; j++) {
@@ -65,7 +74,4 @@ function addNumber() {
     let zeros = Array(mis).fill(0);
     arr = arr.concat(zeros);
     return arr;
-  }
-
-  function cow() {
   }
