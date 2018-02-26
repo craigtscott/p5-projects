@@ -22,12 +22,17 @@ function draw() {
 }
 
 function keyPressed() {
+  var tempGrid = [];
+  arrayCopy(grid, 0, tempGrid, 0, 4);
   if (key === ' ') {
     for (var i = 0; i < 4; i++) {
       grid[i] = slideRow(grid[i]);
     }
   }
-  addNumber();
+
+  if (tempGrid.join('') !== grid.join('')){
+    addNumber();
+  }
 }
 
 function drawGrid() {
@@ -75,3 +80,5 @@ function addNumber() {
     arr = arr.concat(zeros);
     return arr;
   }
+
+  function combine(){}
