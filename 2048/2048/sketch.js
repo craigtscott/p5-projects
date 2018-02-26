@@ -89,7 +89,7 @@ function addNumber() {
       let b = row[i-1];
       if (a === b && a !== 0) {
         row[i] = a + b;
-        row[i+1] = 0;
+        row[i-1] = 0;
         break;
       }
     }
