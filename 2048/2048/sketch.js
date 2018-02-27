@@ -18,18 +18,38 @@ function setup() {
 function draw() {
   background(0);
   drawGrid();
+}
 
+function flip(grid){
+  for (var i = 0; i < 4; i++) {
+    grid[i].reverse();
+  }
 }
 
 function keyPressed() {
   var tempGrid = [];
   arrayCopy(grid, 0, tempGrid, 0, 4);
-  if (key === ' ') {
-    for (var i = 0; i < 4; i++) {
-      grid[i] = slideRow(grid[i]);
-      grid[i] = combine(grid[i]);
-      // grid[i] = slideRow(grid[i]);
-    }
+  let flipped = false;
+  if (keyCode === LEFT_ARROW){
+    flip(grid);
+    flipped = true;
+  } else if (keyCode === RIGHT_ARROW) {
+
+  } else if (keyCode === RIGHT_ARROW){
+
+  }else if (keyCode === RIGHT_ARROW) {
+
+  }
+
+
+  for (var i = 0; i < 4; i++) {
+    grid[i] = slideRow(grid[i]);
+    grid[i] = combine(grid[i]);
+    grid[i] = slideRow(grid[i]);
+  }
+
+  if (flipped) {
+    flip(grid);
   }
 
   if (tempGrid.join('') !== grid.join('')){
@@ -90,7 +110,6 @@ function addNumber() {
       if (a === b && a !== 0) {
         row[i] = a + b;
         row[i-1] = 0;
-        break;
       }
     }
     return row;
