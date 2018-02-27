@@ -1,12 +1,16 @@
 var grid ;
 var wid;
-function setup() {
-  createCanvas(400,400);
-  grid = [  [0,0,0,0],
+
+function newGrid() {
+  return [  [0,0,0,0],
             [0,0,0,0],
             [0,0,0,0],
             [0,0,0,0]
           ];
+}
+function setup() {
+  createCanvas(400,400);
+  grid = newGrid();
 
 
   addNumber();
@@ -26,31 +30,51 @@ function flip(grid){
   }
 }
 
+function rotate(grid){
+  let nGrid = newGrid();
+  for (var i = 0; i < 4; i++) {
+    for (var j = 0; j < 4; j++) {
+      nGrid[i][j] = grid[j][i];
+    }
+  }
+  return nGrid;
+}
+
 function keyPressed() {
+  console.table(grid);
   var tempGrid = [];
   arrayCopy(grid, 0, tempGrid, 0, 4);
   let flipped = false;
+  let rotated = false;
   if (keyCode === LEFT_ARROW){
     flip(grid);
     flipped = true;
   } else if (keyCode === RIGHT_ARROW) {
 
-  } else if (keyCode === RIGHT_ARROW){
+  } else if (keyCode === UP_ARROW){
+    grid = rotate(grid);
+    rotated = true;
 
-  }else if (keyCode === RIGHT_ARROW) {
+  }else if (keyCode === DOWN_ARROW) {
 
   }
 
 
+  console.table(grid);
   for (var i = 0; i < 4; i++) {
     grid[i] = slideRow(grid[i]);
     grid[i] = combine(grid[i]);
     grid[i] = slideRow(grid[i]);
+
   }
 
   if (flipped) {
     flip(grid);
   }
+  if (rotated){
+    rotate(grid);
+  }
+
 
   if (tempGrid.join('') !== grid.join('')){
     addNumber();
