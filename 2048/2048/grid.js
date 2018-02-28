@@ -7,14 +7,14 @@ function newGrid() {
 }
 
 
-function flip(grid){
+function flipGrid(grid){
   for (var i = 0; i < 4; i++) {
     grid[i].reverse();
   }
   return grid;
 }
 
-function rotateG(grid){
+function rotateGrid(grid){
   let nGrid = newGrid();
   for (var i = 0; i < 4; i++) {
     for (var j = 0; j < 4; j++) {
