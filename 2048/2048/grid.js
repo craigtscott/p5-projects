@@ -14,11 +14,11 @@ function flip(grid){
   return grid;
 }
 
-function rotate(grid){
+function rotateG(grid){
   let nGrid = newGrid();
   for (var i = 0; i < 4; i++) {
     for (var j = 0; j < 4; j++) {
-      nGrid[i][j] = grid[j][i];
+      nGrid[j][i] = grid[i][j];
     }
   }
   return nGrid;

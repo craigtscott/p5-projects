@@ -1,5 +1,5 @@
 function slideRow(row) {
-  console.log(row);
+  // console.log(row);
   let arr = row.filter(val => val);
   let mis = 4 - arr.length;
   let zeros = Array(mis).fill(0);

@@ -37,8 +37,8 @@ function keyPressed() {
     grid = rotate(grid);
     rotated = true;
     played = true;
-  }else if (keyCode === DOWN_ARROW) {
-    grid = rotate(grid);
+  } else if (keyCode === DOWN_ARROW) {
+    grid = rotateG(grid);
     rotated = true;
     played = true;
   }
