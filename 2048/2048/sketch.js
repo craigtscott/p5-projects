@@ -28,6 +28,7 @@ function flip(grid){
   for (var i = 0; i < 4; i++) {
     grid[i].reverse();
   }
+  return grid;
 }
 
 function rotate(grid){
@@ -41,38 +42,47 @@ function rotate(grid){
 }
 
 function keyPressed() {
-  console.table(grid);
   var tempGrid = [];
   arrayCopy(grid, 0, tempGrid, 0, 4);
   let flipped = false;
   let rotated = false;
+  let played = false;
   if (keyCode === LEFT_ARROW){
-    flip(grid);
+    console.log("hi");
+    grid = flip(grid);
     flipped = true;
+    played = true;
   } else if (keyCode === RIGHT_ARROW) {
-
+    played = true;
   } else if (keyCode === UP_ARROW){
+    grid = flip(grid);
+    flipped = true;
     grid = rotate(grid);
     rotated = true;
-
+    played = true;
   }else if (keyCode === DOWN_ARROW) {
-
+    grid = rotate(grid);
+    rotated = true;
+    played = true;
   }
 
-
-  console.table(grid);
-  for (var i = 0; i < 4; i++) {
-    grid[i] = slideRow(grid[i]);
-    grid[i] = combine(grid[i]);
-    grid[i] = slideRow(grid[i]);
-
+  console.log("hello");
+  if (played) {
+    console.table(grid);
+    for (var i = 0; i < 4; i++) {
+      grid[i] = slideRow(grid[i]);
+      grid[i] = combine(grid[i]);
+      grid[i] = slideRow(grid[i]);
+    }
   }
 
   if (flipped) {
-    flip(grid);
+    grid = flip(grid);
   }
   if (rotated){
-    rotate(grid);
+    grid = rotate(grid);
+    grid = rotate(grid);
+    grid = rotate(grid);
   }
 
 
