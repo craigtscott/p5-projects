@@ -1,5 +1,6 @@
 var grid ;
 var wid;
+var score = 0;
 
 function setup() {
   createCanvas(400,400);
@@ -16,6 +17,7 @@ function setup() {
 function drawCanvas() {
   background(0);
   drawGrid();
+  select('#score').html(score);
 }
 
 

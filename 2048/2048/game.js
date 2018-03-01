@@ -12,6 +12,7 @@ function combine(row){
     let b = row[i-1];
     if (a === b) {
       row[i] = a + b;
+      score += row[i];
       row[i-1] = 0;
     }
   }
