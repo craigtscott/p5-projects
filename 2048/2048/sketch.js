@@ -2,8 +2,10 @@ var grid ;
 var wid;
 var score = 0;
 
+
 function setup() {
   createCanvas(400,400);
+  noLoop();
   grid = newGrid();
 
 
@@ -65,6 +67,11 @@ function keyPressed() {
     }
 
     drawCanvas();
+
+    let gameOver = isGameOver();
+    if (gameOver) {
+      console.log("GAME OVER");
+    }
   }
 }
 
