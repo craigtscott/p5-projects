@@ -85,7 +85,10 @@ function drawGrid() {
       rect(i*wid, j*wid, wid,wid);
       let val = grid[i][j];
       if (val !== 0) {
-        textSize(24);
+        let string = "" + val;
+        let len = string.length;
+        let size = [64,64,32,24];
+        textSize(size[len]);
         textAlign(CENTER);
         strokeWeight(1);
         text(val, (j * wid) + wid/2, (i * wid) + wid/2);
