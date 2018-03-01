@@ -33,8 +33,8 @@ function keyPressed() {
   } else if (keyCode === RIGHT_ARROW) {
     played = true;
   } else if (keyCode === UP_ARROW){
-    grid = flipGrid(grid, 1);
     grid = rotateGrid(grid);
+    grid = flipGrid(grid, 1);
     flipped = true;
     rotated = true;
     played = true;
@@ -49,22 +49,21 @@ function keyPressed() {
     for (var i = 0; i < 4; i++) {
       grid[i] = operate(grid[i]);
     }
+    if (flipped) {
+      grid = flipGrid(grid);
+    }
+    if (rotated){
+      grid = rotateGrid(grid, -1);
+    }
+
+
+
+    if (tempGrid.join('') !== grid.join('')){
+      addNumber();
+    }
+
+    drawCanvas();
   }
-
-  if (flipped) {
-    grid = flipGrid(grid);
-  }
-  if (rotated){
-    grid = rotateGrid(grid, -1);
-  }
-
-
-
-  if (tempGrid.join('') !== grid.join('')){
-    addNumber();
-  }
-
-  drawCanvas();
 }
 
 function drawGrid() {
@@ -84,5 +83,6 @@ function drawGrid() {
       }
     }
   }
+
 
 }
