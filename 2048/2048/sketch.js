@@ -72,6 +72,10 @@ function keyPressed() {
     if (gameOver) {
       console.log("GAME OVER");
     }
+    let gameWon = isGameWon();
+    if (gameWon) {
+      console.log("GAME WON");
+    }
   }
 }
 
