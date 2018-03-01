@@ -47,9 +47,7 @@ function keyPressed() {
 
   if (played) {
     for (var i = 0; i < 4; i++) {
-      grid[i] = slideRow(grid[i]);
-      grid[i] = combine(grid[i]);
-      grid[i] = slideRow(grid[i]);
+      grid[i] = operate(grid[i]);
     }
   }
 

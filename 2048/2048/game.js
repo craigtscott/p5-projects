@@ -17,3 +17,11 @@ function combine(row){
   }
   return row;
 }
+
+
+function operate(row){
+  row = slideRow(row);
+  row = combine(row);
+  row = slideRow(row);
+  return row;
+}
