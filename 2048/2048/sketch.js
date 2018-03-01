@@ -33,14 +33,13 @@ function keyPressed() {
   } else if (keyCode === RIGHT_ARROW) {
     played = true;
   } else if (keyCode === UP_ARROW){
-    // console.log("1: "+grid);
-    grid = flipAndRotateGrid(grid);
-    // console.log("2: "+grid);
-    flippedAndRotated = true;
+    grid = flipGrid(grid, 1);
+    grid = rotateGrid(grid);
+    flipped = true;
+    rotated = true;
     played = true;
   } else if (keyCode === DOWN_ARROW) {
     grid = rotateGrid(grid);
-    console.log("down: "+grid);
     rotated = true;
     played = true;
   }
@@ -48,11 +47,8 @@ function keyPressed() {
 
   if (played) {
     for (var i = 0; i < 4; i++) {
-      console.log("3: "+grid);
       grid[i] = slideRow(grid[i]);
-      console.log("4: "+grid);
       grid[i] = combine(grid[i]);
-      console.log("5: "+grid);
       grid[i] = slideRow(grid[i]);
     }
   }
@@ -63,12 +59,7 @@ function keyPressed() {
   if (rotated){
     grid = rotateGrid(grid, -1);
   }
-  if (flipAndRotate){
-    grid = flipGrid(grid);
-    grid = rotateGrid(grid, -1);
 
-    // grid = unFlipAndRotate(grid);
-  }
 
 
   if (tempGrid.join('') !== grid.join('')){
