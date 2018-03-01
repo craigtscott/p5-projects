@@ -12,15 +12,19 @@ function flipGrid(grid){
   for (var i = 0; i < 4; i++) {
     nGrid[i] = grid[i].reverse();
   }
-  console.log(nGrid);
   return nGrid;
 }
 
-function rotateGrid(grid){
+function rotateGrid(grid, dir){
   let nGrid = newGrid();
   for (var i = 0; i < 4; i++) {
     for (var j = 0; j < 4; j++) {
-      nGrid[j][i] = grid[i][j];
+      if (dir === 1) {
+        nGrid[j][i] = grid[i][j];
+      } else {
+        nGrid[i][j] = grid[j][i];
+
+      }
     }
   }
   return nGrid;
@@ -29,21 +33,6 @@ function rotateGrid(grid){
 function flipAndRotateGrid(grid) {
   let nGrid = newGrid();
   for (var i = 0; i < 4; i++) {
-    nGrid[i] = grid[i].reverse();
-  }
-
-  for (var i = 0; i < 4; i++) {
-    for (var j = 0; j < 4; j++) {
-      nGrid[j][i] = grid[i][j];
-    }
-  }
-  return nGrid;
-
-}
-
-function unFlipAndRotate(grid) {
-  let nGrid = newGrid();
-  for (var i = 0; i < 4; i++) {
     for (var j = 0; j < 4; j++) {
       nGrid[j][i] = grid[i][j];
     }
@@ -55,6 +44,8 @@ function unFlipAndRotate(grid) {
   return nGrid;
 
 }
+
+
 
 function addNumber() {
   var opts = [];

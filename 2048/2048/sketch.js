@@ -27,7 +27,7 @@ function keyPressed() {
   let flipAndRotate = false;
   let played = false;
   if (keyCode === LEFT_ARROW){
-    grid = flipGrid(grid);
+    grid = flipGrid(grid, 1);
     flipped = true;
     played = true;
   } else if (keyCode === RIGHT_ARROW) {
@@ -61,12 +61,13 @@ function keyPressed() {
     grid = flipGrid(grid);
   }
   if (rotated){
-    grid = rotateGrid(grid);
-    grid = rotateGrid(grid);
-    grid = rotateGrid(grid);
+    grid = rotateGrid(grid, -1);
   }
   if (flipAndRotate){
-    grid = unFlipAndRotate(grid);
+    grid = flipGrid(grid);
+    grid = rotateGrid(grid, -1);
+
+    // grid = unFlipAndRotate(grid);
   }
 
 
