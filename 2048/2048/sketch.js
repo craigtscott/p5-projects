@@ -85,17 +85,23 @@ function drawGrid() {
     for (var j = 0; j < 4; j++) {
       noFill();
       strokeWeight(4);
-      stroke(255);
-      rect(i*wid, j*wid, wid,wid);
       let val = grid[i][j];
+      let string = "" + val;
+      stroke(255);
+      if (val !== 0){
+        fill(colorsSizes[string].color);
+      } else {
+        noFill();
+      }
+      rect(i*wid, j*wid, wid,wid);
       if (val !== 0) {
-        let string = "" + val;
         let len = string.length;
-        let size = [64,64,32,24];
+        let size = [64,64,32,24,24];
+        fill(255);
         textSize(size[len]);
         textAlign(CENTER);
         strokeWeight(1);
-        text(val, (j * wid) + wid/2, (i * wid) + wid/2);
+        text(val, (i * wid) + wid/2, (j * wid) + wid/2);
       }
     }
   }
