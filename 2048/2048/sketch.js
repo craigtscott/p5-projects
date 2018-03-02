@@ -31,20 +31,20 @@ function keyPressed() {
   let flipAndRotate = false;
   let played = false;
   if (keyCode === LEFT_ARROW){
-    grid = flipGrid(grid, 1);
-    flipped = true;
-    played = true;
-  } else if (keyCode === RIGHT_ARROW) {
-    played = true;
-  } else if (keyCode === UP_ARROW){
     grid = rotateGrid(grid);
     grid = flipGrid(grid, 1);
     flipped = true;
+    rotated = true;
+    played = true;
+  } else if (keyCode === RIGHT_ARROW) {
+    grid = rotateGrid(grid);
+    grid = flipGrid(grid, 1);
+    flipped = true;
+    played = true;
+  } else if (keyCode === UP_ARROW){
     rotated = true;
     played = true;
   } else if (keyCode === DOWN_ARROW) {
-    grid = rotateGrid(grid);
-    rotated = true;
     played = true;
   }
 
