@@ -38,11 +38,11 @@ function keyPressed() {
     played = true;
   } else if (keyCode === RIGHT_ARROW) {
     grid = rotateGrid(grid);
-    grid = flipGrid(grid, 1);
-    flipped = true;
+    rotated = true;
     played = true;
   } else if (keyCode === UP_ARROW){
-    rotated = true;
+    grid = flipGrid(grid, 1);
+    flipped = true;
     played = true;
   } else if (keyCode === DOWN_ARROW) {
     played = true;
