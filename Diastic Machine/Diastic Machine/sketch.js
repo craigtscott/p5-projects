@@ -1,19 +1,15 @@
-
-
-function preload() {
-
-}
+var words;
 
 function setup() {
   noCanvas();
-  // srctxt = join(srctxt, ' ');
+  words = splitTokens(srctxt, ' ,!.?');
   var seed = select("#seed");
   var submit = select("#submit");
   submit.mousePressed(function() {
-    createP(srctxt);
+    var phrase = diastic(seed.value(), words);
   });
 }
 
-function draw() {
-
+function diastic(seed, arr) {
+  console.log(seed);
 }
