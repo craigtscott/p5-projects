@@ -1,4 +1,5 @@
 var font;
+var vehicles = [];
 
 function preload(){
     font = loadFont('./TheBrownies.otf');
@@ -16,9 +17,8 @@ function setup() {
 
   for (var i = 0; i < points.length; i++) {
     var poi = points[i];
-    stroke(0,255,0);
-    strokeWeight(4);
-    point(poi.x, poi.y);
+    var vehicle = new Vehicle(poi.x, poi.y);
+    vehicles.push(vehicle);
   }
 }
 
