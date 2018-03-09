@@ -1,13 +1,16 @@
 var font;
 var vehicles = [];
+var input;
 
 function preload(){
     font = loadFont('./TheBrownies.otf');
 }
 function setup() {
-  createCanvas(1024, 786);
+  createCanvas(1024, 500);
+  input = createInput("Wren");
 
-  var points = font.textToPoints('Wren', 175,200,200);
+
+  var points = font.textToPoints(input.value(), 175,200,200);
   console.log(points);
 
   for (var i = 0; i < points.length; i++) {

@@ -8,6 +8,7 @@ function Vehicle(x,y){
   this.rad = 8;
   this.maxAcc = 5;
   this.maxForce = 0.2;
+  this.zero = createVector(0,0);
 }
 
 
@@ -26,6 +27,10 @@ Vehicle.prototype.show = function() {
 Vehicle.prototype.behaviors = function() {
   var arive = this.arived(this.target);
   this.applyForce(arive);
+
+  var mouse = createVector(mouseX, mouseY);
+  var flee = this.flee(mouse);
+  this.applyForce(flee);
 };
 
 Vehicle.prototype.applyForce = function(f) {
@@ -46,10 +51,16 @@ Vehicle.prototype.arived = function(target) {
 };
 
 
-Vehicle.prototype.seek = function(target) {
+Vehicle.prototype.flee = function(target) {
   var desired = p5.Vector.sub(target, this.pos);
-  desired.setMag(this.maxAcc);
-  var steer = p5.Vector.sub(desired, this.vel);
-  steer.limit(this.MaxForce);
-  return steer;
+  var dist = desired.mag();
+  if (dist < 50) {
+    desired.setMag(this.maxAcc);
+    desired.mult(-1);
+    var steer = p5.Vector.sub(desired, this.vel);
+    steer.limit(this.MaxForce);
+    return steer;
+  } else {
+    return this.zero;
+  }
 };
