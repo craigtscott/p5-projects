@@ -24,6 +24,7 @@ function setup() {
 function draw() {
   background(27);
   for (var i = 0; i < vehicles.length; i++) {
+    vehicles[i].behaviors();
     vehicles[i].update();
     vehicles[i].show();
   }
