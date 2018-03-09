@@ -15,12 +15,12 @@ function setup() {
 }
 
 function updateText(){
-  vehicles = [];
   var points = font.textToPoints(inp.value(), 175,200,200);
 
   for (var i = 0; i < points.length; i++) {
     var poi = points[i];
     var vehicle = new Vehicle(poi.x, poi.y);
+
     vehicles.push(vehicle);
   }
 
@@ -28,10 +28,6 @@ function updateText(){
 
 function draw() {
   background(27);
-  // textFont(font);
-  // fill(255);
-  // textSize(200);
-  // text('Wren', 175,200);
   for (var i = 0; i < vehicles.length; i++) {
     vehicles[i].behaviors();
     vehicles[i].update();
