@@ -1,7 +1,7 @@
 function Vehicle(x,y){
   this.pos = createVector(x,y);
   this.target = createVector(x,y);
-  this.vel = createVector();
+  this.vel = p5.Vector.random2D();
   this.acc = createVector();
   this.rad = 8;
 }
