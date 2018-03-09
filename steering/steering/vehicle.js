@@ -1,11 +1,13 @@
 function Vehicle(x,y){
-  this.pos = createVector(0,0);
+  this.pos = createVector(random(width), random(height));
+  // this.pos = createVector(0, 0);
+
   this.target = createVector(x,y);
   this.vel = p5.Vector.random2D();
   this.acc = createVector();
   this.rad = 8;
-  this.max = 5;
-  this.force = 0.2;
+  this.maxAcc = 5;
+  this.maxForce = 0.2;
 }
 
 
@@ -33,21 +35,21 @@ Vehicle.prototype.applyForce = function(f) {
 Vehicle.prototype.arived = function(target) {
   var desired = p5.Vector.sub(target, this.pos);
   var dist = desired.mag();
-  var speed = this.max;
-  if (dist <100){
-    speed = map(dist,0,100,0,max);
+  var speed = this.maxAcc;
+  if (dist < 100){
+    speed = map(dist,0,100,0,this.maxAcc);
   }
   desired.setMag(speed);
   var steer = p5.Vector.sub(desired, this.vel);
-  steer.limit(this.force);
+  steer.limit(this.maxForce);
   return steer;
 };
 
 
 Vehicle.prototype.seek = function(target) {
   var desired = p5.Vector.sub(target, this.pos);
-  desired.setMag(this.max);
+  desired.setMag(this.maxAcc);
   var steer = p5.Vector.sub(desired, this.vel);
-  steer.limit(this.force);
+  steer.limit(this.MaxForce);
   return steer;
 };

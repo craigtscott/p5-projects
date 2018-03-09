@@ -6,10 +6,6 @@ function preload(){
 }
 function setup() {
   createCanvas(1024, 786);
-  // textFont(font, 200);
-  //
-  // fill(255);
-  // text('Wren', 175,200);
 
   var points = font.textToPoints('Wren', 175,200,200);
   console.log(points);
@@ -23,6 +19,10 @@ function setup() {
 
 function draw() {
   background(27);
+  // textFont(font);
+  // fill(255);
+  // textSize(200);
+  // text('Wren', 175,200);
   for (var i = 0; i < vehicles.length; i++) {
     vehicles[i].behaviors();
     vehicles[i].update();
