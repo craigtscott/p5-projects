@@ -1,31 +1,31 @@
 # p5-projects
 
 * [2048](https://craigtscott.github.io/p5-projects/2048/2048/index.html)
-* capture
-* cell
-* clickable
-* conway
-* createGraphics
-* Diastic Machine
-* Double Pendulum
-* Fireworks
-* Flocking
-* Fractles
-* Islam Stars
-* lorenz
-* mandelbrot
-* map
-* matrix
-* maze
-* phyllotaxis
-* pix
-* polar rose
-* Rockets
-* shoots and ladders
-* sales person
-* snake
-* Space Rock Shooter
-* steering
-* super shape
-* wave
-* word count
+* [capture](https://craigtscott.github.io/p5-projects/capture/capture/index.html)
+* [cell](https://craigtscott.github.io/p5-projects/cell/cell/index.html)
+* [clickable](https://craigtscott.github.io/p5-projects/clickable/clickable/index.html)
+* [conway](https://craigtscott.github.io/p5-projects/conway/conway/index.html)
+* [createGraphics](https://craigtscott.github.io/p5-projects/createGraphics/createGraphics/index.html)
+* [Diastic Machine](https://craigtscott.github.io/p5-projects/)
+* [Double Pendulum](https://craigtscott.github.io/p5-projects/)
+* [Fireworks](https://craigtscott.github.io/p5-projects/)
+* [Flocking](https://craigtscott.github.io/p5-projects/)
+* [Fractals](https://craigtscott.github.io/p5-projects/)
+* [Islam Stars](https://craigtscott.github.io/p5-projects/)
+* [Lorenz](https://craigtscott.github.io/p5-projects/)
+* [mandelbrot](https://craigtscott.github.io/p5-projects/)
+* [map](https://craigtscott.github.io/p5-projects/)
+* [matrix](https://craigtscott.github.io/p5-projects/)
+* [maze](https://craigtscott.github.io/p5-projects/)
+* [phyllotaxis](https://craigtscott.github.io/p5-projects/)
+* [pix](https://craigtscott.github.io/p5-projects/)
+* [polar rose](https://craigtscott.github.io/p5-projects/)
+* [Rockets](https://craigtscott.github.io/p5-projects/)
+* [shoots and ladders](https://craigtscott.github.io/p5-projects/)
+* [sales person](https://craigtscott.github.io/p5-projects/)
+* [snake](https://craigtscott.github.io/p5-projects/)
+* [Space Rock Shooter](https://craigtscott.github.io/p5-projects/)
+* [steering](https://craigtscott.github.io/p5-projects/)
+* [super shape](https://craigtscott.github.io/p5-projects/)
+* [wave](https://craigtscott.github.io/p5-projects/)
+* [word count](https://craigtscott.github.io/p5-projects/)
