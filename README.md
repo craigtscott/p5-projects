@@ -1,6 +1,6 @@
 # p5-projects
 
-* 2048
+* 2048 (https://craigtscott.github.io/p5-projects/2048/2048/index.html)
 * capture
 * cell
 * clickable
