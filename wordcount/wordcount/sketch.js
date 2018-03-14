@@ -6,9 +6,9 @@ function preload(){
 }
 function setup() {
   console.log(words);
-  // var tokens = words.split(/\W+/);
-  for (var i = 0; i < words.length; i++) {
-    var word = words[i].toLowerCase();
+  var tokens = words.split(/\W+/);
+  for (var i = 0; i < tokens.length; i++) {
+    var word = tokens[i].toLowerCase();
     if (counts[word] === undefined) {
       counts[word] = 1;
       keys.push(word);
