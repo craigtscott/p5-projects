@@ -8,7 +8,7 @@ function preload(){
 function setup() {
   // words = words[0];
   console.log(words);
-  tokens = words.split(" ");
+  tokens = words[0].split(" ");
   for (var i = 0; i < tokens.length; i++) {
     var word = tokens[i].toLowerCase();
     if (counts[word] === undefined) {
