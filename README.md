@@ -23,7 +23,7 @@
 * [Rockets](https://craigtscott.github.io/p5-projects/rockets/rockets/index.html)
 * [shoots and ladders](https://craigtscott.github.io/p5-projects/s&l/s&l/index.html)
 * [sales person](https://craigtscott.github.io/p5-projects/salesperson/salesperson/index.html)
-* [snake](https://craigtscott.github.io/p5-projects/salesperson/salesperson/index.html)
+* [snake](https://craigtscott.github.io/p5-projects/snake/snake/index.html)
 * [Space Rock Shooter](https://craigtscott.github.io/p5-projects/spacerockshooter/spacerockshooter/index.html)
 * [steering](https://craigtscott.github.io/p5-projects/steering/steering/index.html)
 * [super shape](https://craigtscott.github.io/p5-projects/superShape/superShape/index.html)
