@@ -4,10 +4,11 @@ var words;
 var tokens;
 function preload(){
   words = loadStrings('text.txt');
+  words = words[0];
 }
 function setup() {
   console.log(words);
-  tokens = words[0].split(" ");
+  tokens = words.split(" ");
   for (var i = 0; i < tokens.length; i++) {
     var word = tokens[i].toLowerCase();
     if (counts[word] === undefined) {
