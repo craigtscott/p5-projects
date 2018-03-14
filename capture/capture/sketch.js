@@ -1,4 +1,4 @@
-var video;
+var capture;
 var button;
 var shots = [];
 var counter = 0;
@@ -9,8 +9,8 @@ function setup() {
   background(50);
   // button = createButton('snap');
   // button.mousePressed(takesnap);
-  video = createCapture(VIDEO, ready);
-  video.hide();
+  capture = createCapture(VIDEO, ready);
+  capture.hide();
 
 
 
@@ -23,7 +23,7 @@ function ready() {
 
 function draw() {
   if (go){
-      shots[counter] = video.get();
+      shots[counter] = capture.get();
       counter++;
 
       if (counter === total) {
@@ -44,10 +44,10 @@ function draw() {
     }
   }
   // tint(0,100,50);
-  // image(video, 0, 0);
+  // image(capture, 0, 0);
 }
 
 // function takesnap() {
-//   shots.push(video.get());
-//   // image(video, 0, 0);
+//   shots.push(capture.get());
+//   // image(capture, 0, 0);
 // }
