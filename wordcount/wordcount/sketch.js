@@ -1,7 +1,12 @@
 var counts = {};
 var keys = [];
+var words;
+function preload(){
+  words = loadStrings('text.txt');
+}
 function setup() {
-var tokens = srctxt.split(/\W+/);
+  console.log(words);
+// var tokens = srctxt.split(/\W+/);
   for (var i = 0; i < tokens.length; i++) {
     var word = tokens[i].toLowerCase();
     if (counts[word] === undefined) {
