@@ -10,7 +10,7 @@ function setup() {
   // button = createButton('snap');
   // button.mousePressed(takesnap);
   video = createCapture(VIDEO, ready);
-  video.hide();
+  capture.hide();
 
 
 }
