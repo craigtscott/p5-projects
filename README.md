@@ -7,7 +7,7 @@
 * [conway](https://craigtscott.github.io/p5-projects/conway/conway/index.html)
 * [createGraphics](https://craigtscott.github.io/p5-projects/createGraphics/createGraphics/index.html)
 * [Diastic Machine](https://craigtscott.github.io/p5-projects/diasticmachine/diasticmachine/index.html)
-* [Double Pendulum](https://craigtscott.github.io/p5-projects/doublePen/doublePen/index.html)
+* [Double Pendulum](https://craigtscott.github.io/p5-projects/fireworks/fireworks/index.html)
 * [Fireworks](https://craigtscott.github.io/p5-projects/doublePen/doublePen/index.html)
 * [Flocking](https://craigtscott.github.io/p5-projects/flocking/flocking/index.html)
 * [Fractals](https://craigtscott.github.io/p5-projects/fractal/fractal/index.html)
