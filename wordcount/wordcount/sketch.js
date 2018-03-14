@@ -6,7 +6,7 @@ function preload(){
   words = loadStrings('text.txt');
 }
 function setup() {
-  words = words[0];
+  // words = words[0];
   console.log(words);
   tokens = words.split(" ");
   for (var i = 0; i < tokens.length; i++) {
