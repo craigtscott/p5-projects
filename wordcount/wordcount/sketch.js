@@ -4,9 +4,9 @@ var words;
 var tokens;
 function preload(){
   words = loadStrings('text.txt');
-  words = words[0];
 }
 function setup() {
+  words = words[0];
   console.log(words);
   tokens = words.split(" ");
   for (var i = 0; i < tokens.length; i++) {
