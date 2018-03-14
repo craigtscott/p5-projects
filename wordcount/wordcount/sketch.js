@@ -6,7 +6,7 @@ function preload(){
 }
 function setup() {
   console.log(words);
-// var tokens = srctxt.split(/\W+/);
+  var tokens = words.split(/\W+/);
   for (var i = 0; i < tokens.length; i++) {
     var word = tokens[i].toLowerCase();
     if (counts[word] === undefined) {
