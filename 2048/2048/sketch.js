@@ -87,7 +87,7 @@ function drawGrid() {
       strokeWeight(4);
       let val = grid[i][j];
       let string = "" + val;
-      stroke(255);
+      stroke(0);
       if (val !== 0){
         fill(colorsSizes[string].color);
       } else {
