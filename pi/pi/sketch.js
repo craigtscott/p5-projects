@@ -37,6 +37,12 @@ function draw() {
     pi = 4 * (circle/total);
     point(x,y);
   }
-  console.log(pi);
-
+  fill(51);
+  noStroke();
+  rect(0,240, 600, 42);
+  stroke(0);
+  fill(0);
+  textSize(42);
+  text("pi is about:", -150, 200);
+  text(pi, -150, 250);
 }
