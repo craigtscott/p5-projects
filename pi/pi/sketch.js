@@ -19,23 +19,24 @@ function setup() {
 
 function draw() {
   translate(height/2, width/2);
+  var pi;
 
+  for (var i = 0; i < 100; i++) {
+    x = random(-r,r );
+    y = random(-r,r);
+    total += 1;
 
-  x = random(-r,r );
-  y = random(-r,r);
-  total += 1;
+    var dist = sqrt(x*x + y*y);
+    if (dist < r){
+      stroke(0,255,0);
+      circle += 1;
+    } else {
+      stroke(255,0,0);
+    }
 
-  var dist = sqrt(x*x + y*y);
-  if (dist < r){
-    stroke(0,255,0);
-    circle += 1;
-  } else {
-    stroke(255,0,0);
+    pi = 4 * (circle/total);
+    point(x,y);
   }
-
-  var pi = 4 * (circle/total);
   console.log(pi);
-  point(x,y);
-
 
 }
