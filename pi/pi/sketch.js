@@ -26,8 +26,8 @@ function draw() {
     y = random(-r,r);
     total += 1;
 
-    var dist = sqrt(x*x + y*y);
-    if (dist < r){
+    var dist = x*x + y*y;
+    if (dist < r*r){
       stroke(0,255,0);
       circle += 1;
     } else {
