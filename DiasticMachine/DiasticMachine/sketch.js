@@ -4,7 +4,7 @@ var words;
 function preload() {
   words = loadStrings('text.txt');
   words = words[0]
-  console.log(words;
+  console.log(words);
 }
 
 function setup() {
