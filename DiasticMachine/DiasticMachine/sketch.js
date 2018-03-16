@@ -3,12 +3,13 @@ var words;
 
 function preload() {
   words = loadStrings('text.txt');
-  console.log(words[0]);
+  words = words[0]
+  console.log(words;
 }
 
 function setup() {
   noCanvas();
-  words[0] = splitTokens(srctxt, ' ,!.?"');
+  words = splitTokens(words, ' ,!.?"');
   var seed = select("#seed");
   var submit = select("#submit");
   submit.mousePressed(function() {
