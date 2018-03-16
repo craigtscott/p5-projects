@@ -2,7 +2,7 @@ var words;
 
 function setup() {
   noCanvas();
-  words = splitTokens(srctxt, ' ,!.?');
+  words = splitTokens(srctxt, ' ,!.?"');
   var seed = select("#seed");
   var submit = select("#submit");
   submit.mousePressed(function() {
