@@ -18,6 +18,7 @@
 * [matrix](https://craigtscott.github.io/p5-projects/matrix/matrix/index.html)
 * [maze](https://craigtscott.github.io/p5-projects/maze/maze/index.html)
 * [phyllotaxis](https://craigtscott.github.io/p5-projects/phyllotaxis/phyllotaxis/index.html)
+* [pi](https://craigtscott.github.io/p5-projects/pi/pi/index.html)
 * [pix](https://craigtscott.github.io/p5-projects/pix/pix/index.html)
 * [polar rose](https://craigtscott.github.io/p5-projects/polarRose/polarRose/index.html)
 * [Rockets](https://craigtscott.github.io/p5-projects/rockets/rockets/index.html)
