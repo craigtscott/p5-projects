@@ -1,8 +1,13 @@
 var words;
 
+function preload() {
+  words = loadStrings('text.txt');
+}
+
 function setup() {
   noCanvas();
-  words = splitTokens(srctxt, ' ,!.?"');
+  console.log(words[0]);
+  words[0] = splitTokens(srctxt, ' ,!.?"');
   var seed = select("#seed");
   var submit = select("#submit");
   submit.mousePressed(function() {
